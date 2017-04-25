@@ -32,6 +32,7 @@
     <PreferenceCategory android:title="@string/pref_preferences" >
         <CheckBoxPreference
             android:key="@string/pref_video_enable_key"
+            android:layout="@layout/hidden"
             android:title="@string/pref_video_enable_title" />
 
         <PreferenceScreen android:title="@string/pref_audio" >
@@ -76,6 +77,7 @@
             <CheckBoxPreference
                 android:dependency="@string/pref_video_enable_key"
                 android:key="@string/pref_video_initiate_call_with_video_key"
+                android:layout="@layout/hidden"
                 android:summary="@string/pref_video_initiate_call_with_video"
                 android:title="@string/pref_video_initiate_call_with_video_title" />
             <CheckBoxPreference
@@ -87,6 +89,7 @@
             <CheckBoxPreference
                 android:dependency="@string/pref_video_enable_key"
                 android:key="@string/pref_video_automatically_accept_video_key"
+                android:layout="@layout/hidden"
                 android:summary="@string/pref_video_automatically_accept_video"
                 android:title="@string/pref_video_automatically_accept_video_title" />
 

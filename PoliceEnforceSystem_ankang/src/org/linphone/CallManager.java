@@ -65,7 +65,7 @@ public class CallManager {
 			params.enableLowBandwidth(true);
 			Log.d("Low bandwidth enabled in call params");
 		}
-
+		params.getVideoEnabled();
 		lc.inviteAddressWithParams(lAddress, params);
 	}
 

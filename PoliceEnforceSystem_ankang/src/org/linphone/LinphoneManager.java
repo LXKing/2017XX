@@ -277,26 +277,31 @@ public class LinphoneManager implements LinphoneListener {
 	}
 
 	public void newOutgoingCall(final AddressType address) {
-		// 在这里进行Dialog展示。让用户自行选择拨打语音或视频电话。
+		// 在这里进行Dialog展示。让用户自行选择拨打语音或视频电话。用户无论选择语音或视频，对方全部以视频方式接收。
+		//在这里明显存在一个问题，呼出方将呼出参数传递到PBX中，由PBX查找分配线路呼入方接收，传递参数没有任何变化，语音和视频参数一致，判断无效。
 		final String to = address.getText().toString();
-		if (mPrefs.isVideoEnabled()) {
-			final String[] items = { "语音电话", "视频电话" };
-			AlertDialog.Builder listDialog = new AlertDialog.Builder(getContext());
-			listDialog.setItems(items, new DialogInterface.OnClickListener() {
-				@Override
-				public void onClick(DialogInterface dialog, int which) {
-					if (which == 0) {
-						newOutgoingCall(to, address.getDisplayedName(), false);
-					} else {
-						newOutgoingCall(to, address.getDisplayedName(), true);
-					}
+		final String[] items = { "语音电话", "视频电话" };
+		AlertDialog.Builder listDialog = new AlertDialog.Builder(getContext());
+		listDialog.setItems(items, new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				if (which == 0) {
+					//语音电话
+					mPrefs.enableVideo(false);
+					mPrefs.setInitiateVideoCall(false);
+					mPrefs.setAutomaticallyAcceptVideoRequests(false);
+					newOutgoingCall(to, address.getDisplayedName(), false);
+					
+				} else {
+					mPrefs.enableVideo(true);
+					mPrefs.setInitiateVideoCall(true);
+					mPrefs.setAutomaticallyAcceptVideoRequests(true);
+					newOutgoingCall(to, address.getDisplayedName(), true);
+					
 				}
-			});
-			listDialog.show();
-		} else {
-			newOutgoingCall(to, address.getDisplayedName(), false);
-		}
-
+			}
+		});
+		listDialog.show();
 	}
 
 	public void newOutgoingCall(String to, String displayName, boolean isVideoCall) {
@@ -873,6 +878,7 @@ public class LinphoneManager implements LinphoneListener {
 
 		if (state == State.Connected) {
 			if (mLc.getCallsNb() == 1) {
+				//在这里连接通话时，进行查看参数。
 				requestAudioFocus();
 				Compatibility.setAudioManagerInCallMode(mAudioManager);
 			}

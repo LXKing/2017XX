@@ -169,7 +169,8 @@ public class InCallActivity extends FragmentActivity implements LinphoneCallStat
 
 	private boolean isVideoEnabled(LinphoneCall call) {
 		if (call != null) {
-			return call.getCurrentParamsCopy().getVideoEnabled();
+			return call.getRemoteParams().getVideoEnabled();
+			//return call.getCurrentParamsCopy().getVideoEnabled();
 		}
 		return false;
 	}
@@ -197,8 +198,9 @@ public class InCallActivity extends FragmentActivity implements LinphoneCallStat
 		}
 
 		video = (TextView) findViewById(R.id.video);
-		video.setOnClickListener(this);
-		video.setEnabled(false);
+		// video.setOnClickListener(this);
+		// video.setEnabled(false);
+		video.setVisibility(View.INVISIBLE);
 		micro = (TextView) findViewById(R.id.micro);
 		micro.setOnClickListener(this);
 		// micro.setEnabled(false);
@@ -215,8 +217,9 @@ public class InCallActivity extends FragmentActivity implements LinphoneCallStat
 		transfer.setOnClickListener(this);
 		transfer.setEnabled(false);
 		options = (TextView) findViewById(R.id.options);
-		options.setOnClickListener(this);
-		options.setEnabled(false);
+		// options.setOnClickListener(this);
+		// options.setEnabled(false);
+		options.setVisibility(View.INVISIBLE);
 		pause = (TextView) findViewById(R.id.pause);
 		pause.setOnClickListener(this);
 		pause.setEnabled(false);
@@ -249,7 +252,6 @@ public class InCallActivity extends FragmentActivity implements LinphoneCallStat
 		switchCamera.setOnClickListener(this);
 
 		mControlsLayout = (ViewGroup) findViewById(R.id.menu);
-
 		if (!isTransferAllowed) {
 			addCall.setBackgroundResource(R.drawable.options_add_call);
 		}
@@ -383,7 +385,7 @@ public class InCallActivity extends FragmentActivity implements LinphoneCallStat
 		} else if (id == R.id.hangUp) {
 			hangUp();
 		} else if (id == R.id.dialer) {
-//			hideOrDisplayNumpad();
+			// hideOrDisplayNumpad();
 		} else if (id == R.id.conference) {
 			enterConference();
 		} else if (id == R.id.switchCamera) {
@@ -393,7 +395,7 @@ public class InCallActivity extends FragmentActivity implements LinphoneCallStat
 		} else if (id == R.id.transfer) {
 			goBackToDialerAndDisplayTransferButton();
 		} else if (id == R.id.options) {
-//			hideOrDisplayCallOptions();
+			// hideOrDisplayCallOptions();
 		} else if (id == R.id.audioRoute) {
 			hideOrDisplayAudioRoutes();
 		} else if (id == R.id.routeBluetooth) {
@@ -688,7 +690,7 @@ public class InCallActivity extends FragmentActivity implements LinphoneCallStat
 						animation.setAnimationListener(new AnimationListener() {
 							@Override
 							public void onAnimationStart(Animation animation) {
-								video.setEnabled(false); 
+								video.setEnabled(false);
 							}
 
 							@Override
@@ -697,7 +699,7 @@ public class InCallActivity extends FragmentActivity implements LinphoneCallStat
 
 							@Override
 							public void onAnimationEnd(Animation animation) {
-								video.setEnabled(true); 
+								video.setEnabled(true);
 								transfer.setVisibility(View.INVISIBLE);
 								addCall.setVisibility(View.INVISIBLE);
 								mControlsLayout.setVisibility(View.GONE);
