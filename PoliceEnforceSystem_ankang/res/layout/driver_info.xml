@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.xiangxun.widget.TitleView
+        android:id="@+id/tv_comm_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="0.5dp"
+        android:layout_marginRight="0.5dp"
+        android:background="@drawable/publish_item_all_background"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/publish_click_selector"
+            android:orientation="horizontal" >
+
+            <com.xiangxun.widget.AutoClearEditText
+                android:id="@+id/search_edit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:hint="输入驾驶证号"
+                android:inputType="text"
+                android:digits="0123456789Xx"
+                android:maxLength="18"
+                android:padding="10dp"
+                android:paddingRight="10dp"
+                android:singleLine="true"
+                android:textColor="@color/color333333"
+                android:textColorHint="#cccccc"
+                android:textSize="@dimen/textSize15" />
+
+            <LinearLayout
+                android:id="@+id/search_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_margin="1dp"
+                android:background="@drawable/bg_line"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/margin_padding15"
+                android:paddingRight="@dimen/margin_padding15" >
+
+                <ToggleButton
+                    android:id="@+id/tgbtn_search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:button="@null"
+                    android:checked="false"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:textColor="@color/blue"
+                    android:textOff="@string/jcbtngetplate"
+                    android:textOn="@string/jcsearchplate"
+                    android:textSize="@dimen/textSize17" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <include
+        layout="@layout/loading"
+        android:visibility="gone" />
+
+    <include
+        layout="@layout/no_data"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/ll_driver_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#eaeaea"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            tools:ignore="UselessParent" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_padding10"
+                android:background="@drawable/business_detai_background"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="@dimen/margin_padding10"
+                    android:paddingLeft="@dimen/margin_padding10"
+                    android:paddingRight="@dimen/margin_padding10"
+                    android:paddingTop="@dimen/margin_padding10" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding1"
+                        android:layout_marginRight="@dimen/margin_padding6"
+                        android:text="|"
+                        android:textColor="@color/color333333"
+                        android:textSize="@dimen/textSize18" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/driver_info"
+                        android:textColor="@color/color333333"
+                        android:textSize="@dimen/textSize18" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@drawable/dashed_line" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/margin_padding10"
+                    android:paddingLeft="@dimen/margin_padding10"
+                    android:paddingRight="@dimen/margin_padding10"
+                    android:paddingTop="@dimen/margin_padding10" >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/driver_name"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize14" />
+
+                        <TextView
+                            android:id="@+id/tv_driver_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize14" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/driver_sex"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize14" />
+
+                        <TextView
+                            android:id="@+id/tv_driver_sex"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize14" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/driver_birthday"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize14" />
+
+                        <TextView
+                            android:id="@+id/tv_driver_birthday"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize14" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/driver_tel"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize14" />
+
+                        <TextView
+                            android:id="@+id/tv_driver_tel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize14" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/driver_car"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize14" />
+
+                        <TextView
+                            android:id="@+id/tv_driver_car"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize14" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/driver_time"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize14" />
+
+                        <TextView
+                            android:id="@+id/tv_driver_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize14" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/driver_office"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize14" />
+
+                        <TextView
+                            android:id="@+id/tv_driver_office"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize14" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/driver_number"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize14" />
+
+                        <TextView
+                            android:id="@+id/tv_driver_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize14" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_ask_buy_area"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/driver_score"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize14" />
+
+                        <TextView
+                            android:id="@+id/tv_driver_score"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize14" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/driver_status"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize14" />
+
+                        <TextView
+                            android:id="@+id/tv_driver_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize14" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/driver_first"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize14" />
+
+                        <TextView
+                            android:id="@+id/tv_driver_first"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize14" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/driver_next"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize14" />
+
+                        <TextView
+                            android:id="@+id/tv_driver_next"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize14" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/driver_start_date"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize14" />
+
+                        <TextView
+                            android:id="@+id/tv_driver_start_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize14" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/driver_endx_date"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize14" />
+
+                        <TextView
+                            android:id="@+id/tv_driver_end_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize14" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/driver_zipcode"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize14" />
+
+                        <TextView
+                            android:id="@+id/tv_driver_zipcode"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize14" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/driver_livenum"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize14" />
+
+                        <TextView
+                            android:id="@+id/tv_driver_livenum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize14" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/driver_update"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize14" />
+
+                        <TextView
+                            android:id="@+id/tv_driver_update"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize14" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/driver_mcunum"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize14" />
+
+                        <TextView
+                            android:id="@+id/tv_driver_mcunum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize14" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <include layout="@layout/layout_keyboard"/>
+</LinearLayout>

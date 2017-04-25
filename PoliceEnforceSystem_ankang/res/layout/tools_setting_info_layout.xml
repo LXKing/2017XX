@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/frabg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/frabg"
+        android:orientation="vertical" >
+
+        <com.xiangxun.widget.TitleView
+            android:id="@+id/tv_comm_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            style="@style/full_line_seperator"
+            android:layout_marginTop="@dimen/margin_padding15" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/rl_change_password"
+                style="@style/more_relativelayout" >
+
+                <ImageView
+                    android:id="@+id/dvimage01"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/set_password"
+                    android:paddingBottom="13dip"
+                    android:paddingRight="8dip"
+                    android:paddingTop="13dip" />
+
+                <TextView
+                    style="@style/more_text"
+                    android:layout_toRightOf="@id/dvimage01"
+                    android:text="@string/modifyPwd" />
+
+                <TextView
+                    android:id="@+id/more_tv_arrows"
+                    style="@style/more_arrows" />
+
+                <TextView
+                    android:id="@+id/tv_more_cache"
+                    style="@style/more_text2"
+                    android:layout_toLeftOf="@id/more_tv_arrows"
+                    android:text="@string/modifyPwd_desc" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_register"
+                style="@style/more_relativelayout" >
+
+                <View
+                    style="@style/full_line_seperator"
+                    android:layout_marginLeft="@dimen/margin_padding5" />
+
+                <ImageView
+                    android:id="@+id/dvimage02"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/set_register"
+                    android:paddingBottom="13dip"
+                    android:paddingRight="8dip"
+                    android:paddingTop="13dip" />
+
+                <TextView
+                    style="@style/more_text"
+                    android:layout_toRightOf="@id/dvimage02"
+                    android:text="@string/sysRegist" />
+
+                <TextView
+                    android:id="@+id/more_tv_arrows02"
+                    style="@style/more_arrows" />
+
+                <TextView
+                    style="@style/more_text2"
+                    android:layout_toLeftOf="@id/more_tv_arrows02"
+                    android:text="@string/sysRegist_desc" />
+            </RelativeLayout>
+
+            <View
+                style="@style/full_line_seperator"
+                android:layout_marginLeft="@dimen/margin_padding20" />
+
+            <RelativeLayout
+                android:id="@+id/rl_system_setting"
+                style="@style/more_relativelayout" >
+
+                <ImageView
+                    android:id="@+id/dvimage03"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/set_system"
+                    android:paddingBottom="13dip"
+                    android:paddingRight="8dip"
+                    android:paddingTop="13dip" />
+
+                <TextView
+                    style="@style/more_text"
+                    android:layout_toRightOf="@id/dvimage03"
+                    android:text="@string/sysParameter_setting" />
+
+                <TextView
+                    android:id="@+id/more_tv_arrows03"
+                    style="@style/more_arrows" />
+
+                <TextView
+                    style="@style/more_text2"
+                    android:layout_toLeftOf="@id/more_tv_arrows03"
+                    android:text="@string/sysParameter_setting_desc" />
+            </RelativeLayout>
+
+            <View
+                style="@style/full_line_seperator"
+                android:layout_marginLeft="@dimen/margin_padding20" />
+
+            <RelativeLayout
+                android:id="@+id/rl_more_clear"
+                style="@style/more_relativelayout" >
+
+                <ImageView
+                    android:id="@+id/dvimage04"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/set_cleardata"
+                    android:paddingBottom="13dip"
+                    android:paddingRight="8dip"
+                    android:paddingTop="13dip" />
+
+                <TextView
+                    style="@style/more_text"
+                    android:layout_toRightOf="@id/dvimage04"
+                    android:text="@string/qcsj" />
+
+                <TextView
+                    android:id="@+id/more_tv_arrows04"
+                    style="@style/more_arrows" />
+
+                <TextView
+                    style="@style/more_text2"
+                    android:layout_toLeftOf="@id/more_tv_arrows04"
+                    android:text="@string/qcsj_dec" />
+            </RelativeLayout>
+
+            <View
+                style="@style/full_line_seperator"
+                android:layout_marginLeft="@dimen/margin_padding20" />
+
+            <RelativeLayout
+                android:id="@+id/rl_resolution_font"
+                style="@style/more_relativelayout" >
+
+                <ImageView
+                    android:id="@+id/dvimage05"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/set_font"
+                    android:paddingBottom="13dip"
+                    android:paddingRight="8dip"
+                    android:paddingTop="13dip" />
+
+                <TextView
+                    style="@style/more_text"
+                    android:layout_toRightOf="@id/dvimage05"
+                    android:text="@string/picsize" />
+
+                <TextView
+                    android:id="@+id/more_tv_arrows05"
+                    style="@style/more_arrows" />
+
+                <TextView
+                    style="@style/more_text2"
+                    android:layout_toLeftOf="@id/more_tv_arrows05"
+                    android:text="设置拍照像素与水印字体" />
+            </RelativeLayout>
+
+            <View
+                style="@style/full_line_seperator"
+                android:layout_marginLeft="@dimen/margin_padding20" />
+
+            <RelativeLayout
+                android:id="@+id/rl_video_setting"
+                style="@style/more_relativelayout" >
+
+                <ImageView
+                    android:id="@+id/dvimage07"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/set_video"
+                    android:paddingBottom="13dip"
+                    android:paddingRight="8dip"
+                    android:paddingTop="13dip" />
+
+                <TextView
+                    style="@style/more_text"
+                    android:layout_toRightOf="@id/dvimage07"
+                    android:text="设置音视频参数" />
+
+                <TextView
+                    android:id="@+id/more_tv_arrows07"
+                    style="@style/more_arrows" />
+
+                <TextView
+                    style="@style/more_text2"
+                    android:layout_toLeftOf="@id/more_tv_arrows07"
+                    android:text="注册音视频参数" />
+            </RelativeLayout>
+
+            <View
+                style="@style/full_line_seperator"
+                android:layout_marginLeft="@dimen/margin_padding20" />
+
+            <RelativeLayout
+                android:id="@+id/rl_more_work"
+                style="@style/more_relativelayout" >
+
+                <ImageView
+                    android:id="@+id/dvimage08"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/set_work"
+                    android:paddingBottom="13dip"
+                    android:paddingRight="8dip"
+                    android:paddingTop="13dip" />
+
+                <TextView
+                    style="@style/more_text"
+                    android:layout_toRightOf="@id/dvimage08"
+                    android:text="@string/more_work" />
+
+                <TextView
+                    android:id="@+id/more_tv_arrows08"
+                    style="@style/more_arrows" />
+
+                <TextView
+                    android:id="@+id/tv_more_work"
+                    style="@style/more_text2"
+                    android:layout_toLeftOf="@id/more_tv_arrows08"
+                    android:text="@string/more_worknote" />
+            </RelativeLayout>
+                        
+            <View
+                style="@style/full_line_seperator"
+                android:layout_marginLeft="@dimen/margin_padding20" />
+
+            <RelativeLayout
+                android:id="@+id/rl_print_setting"
+                style="@style/more_relativelayout" >
+
+                <ImageView
+                    android:id="@+id/dvimage09"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/set_printer"
+                    android:paddingBottom="13dip"
+                    android:paddingRight="8dip"
+                    android:paddingTop="13dip" />
+
+                <TextView
+                    style="@style/more_text"
+                    android:layout_toRightOf="@id/dvimage09"
+                    android:text="@string/blueprintset" />
+
+                <TextView
+                    android:id="@+id/more_tv_arrows09"
+                    style="@style/more_arrows" />
+
+                <TextView
+                    android:id="@+id/tv_print_settin"
+                    style="@style/more_text2"
+                    android:layout_toLeftOf="@id/more_tv_arrows09"
+                    android:text="@string/printsetnote" />
+            </RelativeLayout>
+
+            <View
+                style="@style/full_line_seperator"
+                android:layout_marginLeft="@dimen/margin_padding20" />
+
+            <RelativeLayout
+                android:id="@+id/rl_more_update"
+                style="@style/more_relativelayout" >
+
+                <ImageView
+                    android:id="@+id/dvimage06"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/app_icon"
+                    android:paddingBottom="13dip"
+                    android:paddingRight="8dip"
+                    android:paddingTop="13dip" />
+
+                <TextView
+                    style="@style/more_text"
+                    android:layout_toRightOf="@id/dvimage06"
+                    android:text="@string/more_update" />
+
+                <TextView
+                    android:id="@+id/more_tv_arrows06"
+                    style="@style/more_arrows" />
+
+                <TextView
+                    android:id="@+id/tv_more_version"
+                    style="@style/more_text2"
+                    android:layout_toLeftOf="@id/more_tv_arrows06"
+                    android:text="V3.10.123" />
+            </RelativeLayout>
+            
+            <View style="@style/full_line_seperator" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

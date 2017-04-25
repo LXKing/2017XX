@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.xiangxun.widget.TitleView
+        android:id="@+id/tv_comm_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/regtvmcode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dip"
+        android:text="@string/shouquan_tip"
+        android:textSize="20sp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/regtvplate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_padding15"
+        android:layout_marginTop="10dip"
+        android:text="" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/regbtnok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.48"
+            android:background="@drawable/bg_line_white"
+            android:padding="@dimen/margin_padding10"
+            android:text="@string/authbutton"
+            android:textColor="@drawable/textcolor_selector"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/regbtnintent"
+            android:layout_width="113dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_line_white"
+            android:padding="@dimen/margin_padding10"
+            android:text="@string/netAuthbutton"
+            android:textColor="@drawable/textcolor_selector"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/regbtncancle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.64"
+            android:background="@drawable/bg_line_white"
+            android:padding="@dimen/margin_padding10"
+            android:text="@string/syscfgcanel"
+            android:textColor="@drawable/textcolor_selector"
+            android:visibility="gone" />
+    </LinearLayout>
+
+<!--     <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:text="@string/plateregist" />
+
+        <EditText
+            android:id="@+id/regedtidcard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/margin_padding5"
+            android:background="@drawable/publish_item_all_background"
+            android:hint="填入车牌识别注册码"
+            android:padding="@dimen/margin_padding8" />
+    </LinearLayout>
+ -->
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/more_item_selector"
+        android:focusable="true"
+    	android:focusableInTouchMode="true"
+        android:padding="@dimen/margin_padding10" >
+
+        <TextView
+            android:id="@+id/text_regidcard"
+            style="@style/more_text"
+            android:text="@string/plateregist" />
+        <EditText
+            android:id="@+id/regedtidcard"
+            style="@style/edittext"
+            android:hint="填入车牌识别注册码" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/regbtnidcard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dip"
+        android:background="@drawable/btn_blue_selctor"
+        android:text="@string/authbutton"
+        android:textColor="@drawable/textcolor_selector" />
+
+    <Button
+        android:id="@+id/recovery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dip"
+        android:background="@drawable/btn_blue_selctor"
+        android:text="恢复"
+        android:textColor="@drawable/textcolor_selector"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <ProgressBar
+            android:id="@+id/down_pb"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</LinearLayout>

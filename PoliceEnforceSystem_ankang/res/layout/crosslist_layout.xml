@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent">
+
+    <ExpandableListView
+        android:id="@+id/cross_expand_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:cacheColorHint="@null"
+        android:divider="@drawable/divider_group"
+        android:groupIndicator="@drawable/expand_group"
+        android:scrollbars="none"
+        android:padding="@dimen/margin_padding10"
+        android:layout_marginBottom="@dimen/margin_padding50"/>
+
+    <LinearLayout
+        android:id="@+id/ll_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/margin_padding5"
+        android:layout_marginTop="@dimen/margin_padding20"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/margin_padding20" >
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="0dip"
+            android:layout_height="40dp"
+            android:layout_marginLeft="@dimen/margin_padding10"
+            android:layout_marginRight="@dimen/margin_padding10"
+            android:layout_weight="1"
+            android:background="@drawable/btn_blue_selctor"
+            android:text="@string/dialog_but1"
+            android:textColor="@drawable/textcolor_selector"
+            android:textSize="@dimen/textSize16" >
+        </Button>
+
+        <Button
+            android:id="@+id/btn_enter"
+            android:layout_width="0dip"
+            android:layout_height="40dp"
+            android:layout_marginLeft="@dimen/margin_padding10"
+            android:layout_marginRight="@dimen/margin_padding10"
+            android:layout_weight="1"
+            android:background="@drawable/btn_blue_selctor"
+            android:text="@string/dialog_but2"
+            android:textColor="@drawable/textcolor_selector"
+            android:textSize="@dimen/textSize16" >
+        </Button>
+    </LinearLayout>
+</RelativeLayout>

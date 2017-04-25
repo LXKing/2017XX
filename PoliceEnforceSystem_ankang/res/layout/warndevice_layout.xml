@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_search_device"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="@dimen/margin_padding10"
+    android:layout_marginRight="@dimen/margin_padding10"
+    android:background="@drawable/publish_item_background"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <ViewFlipper
+        android:id="@+id/vf_search_device"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin_padding10" >
+
+        <include layout="@layout/loading" />
+        <include layout="@layout/no_data" />
+
+        <ImageView
+            android:id="@+id/wran_image"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_padding1"
+            android:visibility="gone" />
+        <WebView
+            android:id="@+id/wran_web"
+            android:layout_width="fill_parent"
+            android:layout_height="200dp"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:visibility="gone"
+            />
+        <TextView
+            android:id="@+id/warn_device"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_padding5"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:text="预案编码: fasdf\n预案名称: 沈阳一号\n预案内容:"
+            android:lineSpacingExtra="@dimen/margin_padding5"
+            android:textColor="@color/color333333"
+            android:textSize="@dimen/textSize15"
+            android:visibility="visible"  />
+
+    </ViewFlipper>
+</LinearLayout>

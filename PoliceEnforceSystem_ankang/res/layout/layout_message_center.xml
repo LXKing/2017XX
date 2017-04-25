@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/frabg"
+    android:orientation="vertical" >
+
+    <com.xiangxun.widget.TitleView
+        android:id="@+id/tv_comm_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+    <ListView
+        android:id="@+id/messagetype_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/margin_padding10"
+        android:divider="@null"
+        android:dividerHeight="10.0dp"
+         />
+    <android.support.v4.view.ViewPager
+        android:id="@+id/message_page"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"   />    
+</LinearLayout>

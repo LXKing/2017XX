@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/my_keyboard"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:visibility="gone">
+
+    <android.inputmethodservice.KeyboardView
+        android:id="@+id/keyboard_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/edit_press"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:keyBackground="@color/key_bg"
+        android:keyPreviewLayout="@layout/key_preview_layout"
+        android:shadowColor="#FFFFFF"
+        android:shadowRadius="0.0"
+        android:keyTextColor="#000000" />
+</RelativeLayout>

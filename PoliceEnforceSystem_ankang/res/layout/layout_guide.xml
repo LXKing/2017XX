@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+     >
+
+    <com.xiangxun.widget.TitleView
+        android:id="@+id/tv_comm_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/step_lab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_comm_title"
+        android:layout_marginTop="@dimen/layoutSize20"
+        android:paddingLeft="@dimen/margin_padding10"
+        android:paddingTop="@dimen/margin_padding10"
+        android:text="@string/serveraddress"
+        android:textColor="@color/blue"
+        android:textSize="@dimen/font_size_16" />
+    
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/step_lab"
+        android:background="@color/full_line"
+        android:layout_marginTop="@dimen/margin_padding10"
+        android:padding="@dimen/margin_padding10"
+         />
+
+    <TextView
+        android:id="@+id/step_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line"
+        android:layout_marginTop="@dimen/layoutSize20"
+        android:layout_marginBottom="@dimen/layoutSize20"
+        android:padding="@dimen/margin_padding10"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_size_14"
+        />
+    
+    <ViewFlipper
+        android:id="@+id/viewFlipper"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/step_note" >
+
+	    <com.xiangxun.widget.ViewEditTextEx
+	        android:id="@+id/edt_server"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content" />  
+
+        <LinearLayout
+            android:id="@+id/workroad"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/more_item_selector"
+            android:orientation="vertical"
+            android:padding="@dimen/margin_padding10" >
+
+            <TextView
+                style="@style/more_text"
+                android:text="@string/more_worknote" />
+
+            <TextView
+                android:id="@+id/workroad_text"
+                style="@style/more_text2"
+                android:text="@string/workroad_city" />
+        </LinearLayout>
+    </ViewFlipper>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+         >
+	    <Button
+	        android:id="@+id/pre"
+	        android:layout_width="wrap_content"
+	        android:layout_height="40dp"
+	        android:layout_weight="1"
+	        android:layout_margin="@dimen/margin_padding8"
+	        android:layout_marginBottom="@dimen/margin_padding5"
+	        android:layout_toLeftOf="@+id/next"
+	        android:background="@drawable/btn_blue_selctor"
+	        android:text="@string/btn_pre"
+	        android:textColor="@drawable/textcolor_selector"
+	        
+	        android:visibility="invisible" /> 
+	        
+	    <Button
+	        android:id="@+id/next"
+	        android:layout_width="wrap_content"
+	        android:layout_height="40dp"
+	        android:layout_weight="1"
+	        android:layout_margin="@dimen/margin_padding8"
+	        android:layout_marginBottom="@dimen/margin_padding5"
+	        android:layout_alignParentRight="true"
+	        android:background="@drawable/btn_blue_selctor"
+	        android:text="@string/btn_next"
+	        android:textColor="@drawable/textcolor_selector"
+	        android:visibility="visible" />        
+    </RelativeLayout>
+</RelativeLayout>

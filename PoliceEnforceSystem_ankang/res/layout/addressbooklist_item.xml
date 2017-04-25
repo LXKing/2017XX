@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="70dip"
+    android:background="@drawable/list_bg_blue_selector"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/item_img1"
+        android:layout_width="60dip"
+        android:layout_height="60dip"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:padding="15dip"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/item_img1"
+        android:layout_marginLeft="15dip"
+        android:paddingTop="5dip"
+        android:textColor="@drawable/textcolor_selector"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/item_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_title"
+        android:layout_marginTop="5dip"
+        android:layout_marginLeft="15dip"
+        android:singleLine="true"
+        android:textColor="@drawable/textcolor_selector" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:paddingRight="20dip"
+        android:src="@drawable/phone_click_able" />
+
+</RelativeLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"    >
+
+    <com.xiangxun.widget.TitleView
+        android:id="@+id/tv_comm_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible" />
+
+    <ViewFlipper
+        android:id="@+id/viewFlipper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tv_comm_title"        >
+
+        <include layout="@layout/crosslist_layout" />
+
+        <include layout="@layout/loading" />
+
+        <include layout="@layout/no_data" />
+    </ViewFlipper>
+</RelativeLayout>

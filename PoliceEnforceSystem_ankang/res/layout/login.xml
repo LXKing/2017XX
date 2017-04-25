@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/image_login" />
+
+    <LinearLayout
+        android:id="@+id/login"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image"
+        android:orientation="vertical"
+        android:paddingLeft="14dip"
+        android:paddingRight="14dip" >
+
+        <LinearLayout
+            android:id="@+id/ll_login_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login_user"
+            android:layout_marginTop="@dimen/margin_padding30"
+            android:background="@drawable/login_editbox"
+            android:gravity="center_vertical"
+            android:padding="@dimen/margin_padding10" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/login_user" />
+
+            <com.xiangxun.widget.AutoClearEditText
+                android:id="@+id/login_name"
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/margin_padding20"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:ems="10"
+                android:hint="请输入账户名"
+                android:inputType="text"
+                android:text="xiangxun"
+                android:enabled="true"
+                android:textColorHint="@color/color999999"
+                android:textSize="@dimen/textSize17" >
+
+                <requestFocus />
+            </com.xiangxun.widget.AutoClearEditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_login_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_login_user"
+            android:layout_marginBottom="@dimen/margin_padding10"
+            android:layout_marginTop="@dimen/margin_padding10"
+            android:background="@drawable/login_editbox"
+            android:gravity="center_vertical"
+            android:padding="@dimen/margin_padding10" >
+
+            <ImageView
+                android:id="@+id/login_password_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/login_lock" />
+
+            <com.xiangxun.widget.AutoClearEditText
+                android:id="@+id/login_password"
+                android:layout_width="0.0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/margin_padding20"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:ems="10"
+                android:hint="请输入密码"
+                android:inputType="textPassword"
+                android:maxLength="11"
+                android:text="123456"
+                android:enabled="true"
+                android:textColorHint="@color/color999999"
+                android:textSize="@dimen/textSize17" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/layoutSize40"
+            android:layout_below="@+id/login" >
+
+            <TextView
+                android:id="@+id/login_guide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/login_set"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:textSize="13sp" />
+        </RelativeLayout>
+
+        <com.xiangxun.widget.XSubButton
+            android:id="@+id/login_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/view_height40"
+            android:layout_marginTop="20dip" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:paddingBottom="@dimen/margin_padding20"
+        android:text="Copyright © 西安翔迅科技有限责任公司"
+        android:textColor="@color/color666666"
+        android:textSize="13sp" />
+
+</RelativeLayout>
