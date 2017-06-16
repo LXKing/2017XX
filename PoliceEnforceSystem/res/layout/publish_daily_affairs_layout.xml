@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical" >
+
+        <com.xiangxun.widget.TitleView
+            android:id="@+id/tv_comm_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+        <com.xiangxun.widget.MyScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tv_comm_title"
+            android:layout_marginBottom="50dip" >
+
+            <LinearLayout
+                android:id="@+id/main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_comm_title"
+                android:orientation="vertical" >
+
+                <!-- 添加图片 -->
+
+                <include layout="@layout/publish_add_picture" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/publish_item_background"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="center_vertical"
+                        android:text="勤务类型"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textSize15" />
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1" >
+
+                        <LinearLayout
+                            android:id="@+id/ll_publish_click_type"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/publish_click_selector"
+                            android:orientation="horizontal" >
+
+                            <View style="@style/full_ver_line_seperatorbyfublish" />
+
+                            <TextView
+                                android:id="@+id/tv_publish_type"
+                                android:layout_width="0dp"
+                                android:layout_height="fill_parent"
+                                android:layout_marginLeft="5dp"
+                                android:layout_weight="1"
+                                android:background="@null"
+                                android:gravity="center_vertical"
+                                android:hint="选择勤务类型"
+                                android:textColor="@color/color333333"
+                                android:textColorHint="#cccccc"
+                                android:textSize="@dimen/textSize15" />
+
+                            <ImageView
+                                android:layout_width="10dp"
+                                android:layout_height="10dp"
+                                android:layout_gravity="bottom|right"
+                                android:layout_marginBottom="10dp"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/icon_pull" />
+                        </LinearLayout>
+                    </FrameLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_padding10"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/publish_item_background"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:visibility="visible" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="center_vertical"
+                        android:text="执勤地点"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textSize15" />
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1" >
+
+                        <LinearLayout
+                            android:id="@+id/ll_publish_click_address"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/publish_click_selector"
+                            android:orientation="horizontal" >
+
+                            <View style="@style/full_ver_line_seperatorbyfublish" />
+
+                            <com.xiangxun.widget.RoadEditView
+                                android:id="@+id/tv_publish_address"
+                                android:layout_width="0dp"
+                                android:layout_height="fill_parent"
+                                android:layout_marginLeft="5dp"
+                                android:layout_weight="1"
+                                android:background="@null"
+                                android:gravity="center_vertical"
+                                android:hint="选择执勤地点"
+                                android:textColor="@color/color333333"
+                                android:textColorHint="#cccccc"
+                                android:textSize="@dimen/textSize15" />
+                        </LinearLayout>
+                    </FrameLayout>
+                </LinearLayout>
+
+                <!-- 道路方向-->
+                <include layout="@layout/roaddirect" />
+                <!-- 路口路段-->
+                <include layout="@layout/roadstep" />
+                <!-- 公里米数-->
+                <include layout="@layout/roadkm" />
+                <!-- 站点信息输入-->
+                <include layout="@layout/roadzhan" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="2px"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#d1d1d1" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/publish_item_background"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="center_vertical"
+                        android:text="执勤时间"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textSize15" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/publish_click_selector"
+                        android:orientation="horizontal" >
+
+                        <View style="@style/full_ver_line_seperatorbyfublish" />
+
+                        <TextView
+                            android:id="@+id/date"
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:gravity="center_vertical"
+                            android:hint=""
+                            android:singleLine="true"
+                            android:textColor="@color/color333333"
+                            android:textColorHint="#cccccc"
+                            android:textSize="@dimen/textSize15" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/publish_item_background"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="center_vertical"
+                        android:text="勤务描述"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textSize15" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/publish_click_selector"
+                        android:orientation="horizontal" >
+
+                        <View style="@style/full_ver_line_seperatorbyfublish" />
+
+                        <EditText
+                            android:id="@+id/dutydiscribe"
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:gravity="center_vertical"
+                            android:hint="@string/inputDesc"
+                            android:maxLength="150"
+                            android:textColor="@color/color333333"
+                            android:textColorHint="#cccccc"
+                            android:textSize="@dimen/textSize15" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="2px"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#d1d1d1" />
+            </LinearLayout>
+        </com.xiangxun.widget.MyScrollView>
+
+        <Button
+            android:id="@+id/upload"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="8dip"
+            android:layout_marginBottom="@dimen/margin_padding5"
+            android:background="@drawable/btn_blue_selctor"
+            android:text="@string/upload"
+            android:textColor="@drawable/textcolor_selector" />
+    </RelativeLayout>
+    <!-- 浮层半透明 -->
+
+    <View
+        android:id="@+id/v_supernatant_background"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#50000000"
+        android:visibility="gone" >
+    </View>
+
+</merge>

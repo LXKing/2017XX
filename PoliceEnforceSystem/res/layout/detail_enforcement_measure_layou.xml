@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eaeaea"
+    android:orientation="vertical" >
+
+    <com.xiangxun.widget.TitleView
+        android:id="@+id/tv_comm_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible" />
+
+    <com.xiangxun.widget.MyScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <include layout="@layout/common_photo_layout" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_padding10"
+                android:background="@drawable/business_detai_background"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_padding10" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="凭证编号:"
+                        android:textSize="@dimen/textSize16" />
+
+                    <TextView
+                        android:id="@+id/tv_punish_code"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/margin_padding8"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="@color/color333333"
+                        android:textSize="@dimen/textSize16" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_padding10"
+                android:background="@drawable/business_detai_background"
+                android:orientation="vertical"
+                android:visibility="visible" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="@dimen/margin_padding10"
+                    android:paddingLeft="@dimen/margin_padding10"
+                    android:paddingRight="@dimen/margin_padding10"
+                    android:paddingTop="@dimen/margin_padding10" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding1"
+                        android:layout_marginRight="@dimen/margin_padding6"
+                        android:text="|"
+                        android:textColor="@color/color333333"
+                        android:textSize="@dimen/textSize18" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dangshirenxinxi"
+                        android:textColor="@color/color333333"
+                        android:textSize="@dimen/textSize18" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@drawable/dashed_line" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/margin_padding5"
+                    android:paddingLeft="@dimen/margin_padding10"
+                    android:paddingRight="@dimen/margin_padding10"
+                    android:paddingTop="@dimen/margin_padding10" >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="驾驶员姓名:"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize16" />
+
+                        <TextView
+                            android:id="@+id/tv_driver_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize16" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="联系方式:"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize16" />
+
+                        <TextView
+                            android:id="@+id/tv_call_type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize16" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="驾驶证号:"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize16" />
+
+                        <TextView
+                            android:id="@+id/tv_driver_type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize16" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="档案编号:"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize16" />
+
+                        <TextView
+                            android:id="@+id/tv_record_code"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize16" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="发证机关:"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize16" />
+
+                        <TextView
+                            android:id="@+id/tv_license_office"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize16" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="准驾车型:"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize16" />
+
+                        <TextView
+                            android:id="@+id/tv_license_type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize16" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_padding10"
+                android:background="@drawable/business_detai_background"
+                android:orientation="vertical"
+                android:visibility="visible" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="@dimen/margin_padding10"
+                    android:paddingLeft="@dimen/margin_padding10"
+                    android:paddingRight="@dimen/margin_padding10"
+                    android:paddingTop="@dimen/margin_padding10" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding1"
+                        android:layout_marginRight="@dimen/margin_padding6"
+                        android:text="|"
+                        android:textColor="@color/color333333"
+                        android:textSize="@dimen/textSize18" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/carinfo"
+                        android:textColor="@color/color333333"
+                        android:textSize="@dimen/textSize18" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@drawable/dashed_line" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/margin_padding5"
+                    android:paddingLeft="@dimen/margin_padding10"
+                    android:paddingRight="@dimen/margin_padding10"
+                    android:paddingTop="@dimen/margin_padding10" >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="号牌号码:"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize16" />
+
+                        <TextView
+                            android:id="@+id/tv_car_plate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize16" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="号牌种类:"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize16" />
+
+                        <TextView
+                            android:id="@+id/tv_plate_type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize16" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="发证机关:"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize16" />
+
+                        <TextView
+                            android:id="@+id/tv_plate_office"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize16" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_padding10"
+                android:background="@drawable/business_detai_background"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="@dimen/margin_padding10"
+                    android:paddingLeft="@dimen/margin_padding10"
+                    android:paddingRight="@dimen/margin_padding10"
+                    android:paddingTop="@dimen/margin_padding10" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding1"
+                        android:layout_marginRight="@dimen/margin_padding6"
+                        android:text="|"
+                        android:textColor="@color/color333333"
+                        android:textSize="@dimen/textSize18" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/wfxx"
+                        android:textColor="@color/color333333"
+                        android:textSize="@dimen/textSize18" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@drawable/dashed_line" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/margin_padding5"
+                    android:paddingLeft="@dimen/margin_padding10"
+                    android:paddingRight="@dimen/margin_padding10"
+                    android:paddingTop="@dimen/margin_padding10" >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="违法地点:"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize16" />
+
+                        <TextView
+                            android:id="@+id/tv_vio_address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize16" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_publish_click_address"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/roadlocation_flag"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize16" />
+
+                        <TextView
+                            android:id="@+id/tv_vio_road_location"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize16" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_publish_click_road_direct"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/roaddirect_flag"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize16" />
+
+                        <TextView
+                            android:id="@+id/tv_vio_road_direct"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize16" />
+                    </LinearLayout>
+                    
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="违法时间:"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize16" />
+
+                        <TextView
+                            android:id="@+id/tv_vio_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize16" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="违法行为:"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize16" />
+
+                        <TextView
+                            android:id="@+id/tv_vio_type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize16" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_padding10"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="强制措施:"
+                            android:textColor="@color/color_888888"
+                            android:textSize="@dimen/textSize16" />
+
+                        <TextView
+                            android:id="@+id/tv_vio_action"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_padding8"
+                            android:text=""
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize16" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </com.xiangxun.widget.MyScrollView>
+
+</LinearLayout>

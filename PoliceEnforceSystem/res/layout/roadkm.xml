@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="visible">
+
+    <!-- 公里数-->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/publish_item_background"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="15dp"
+            android:gravity="center_vertical"
+            android:text="@string/roadkm"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textSize15"/>
+
+        <View
+            android:layout_marginLeft="10dp"
+            style="@style/full_ver_line_seperatorbyfublish"/>
+
+        <EditText
+            android:id="@+id/tv_vio_road_km"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="@string/roadkm_input"
+            android:inputType="number"
+            android:maxLength="4"
+            android:singleLine="true"
+            android:textColor="@color/color333333"
+            android:textColorHint="#cccccc"
+            android:textSize="@dimen/textSize15"/>
+    </LinearLayout>
+    <!-- 米数-->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/publish_item_background"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="15dp"
+            android:gravity="center_vertical"
+            android:text="@string/roadmetre"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textSize15"/>
+
+        <View android:layout_marginLeft="10dp"
+              style="@style/full_ver_line_seperatorbyfublish"/>
+
+        <EditText
+            android:id="@+id/tv_vio_road_metre"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="@string/roadmetre_input"
+            android:inputType="number"
+            android:maxLength="3"
+            android:singleLine="true"
+            android:textColor="@color/color333333"
+            android:textColorHint="#cccccc"
+            android:textSize="@dimen/textSize15"/>
+    </LinearLayout>
+</LinearLayout>

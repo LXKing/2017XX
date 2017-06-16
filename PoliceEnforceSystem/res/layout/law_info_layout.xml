@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/frabg"
+    android:orientation="vertical" >
+
+    <com.xiangxun.widget.TitleView
+        android:id="@+id/tv_comm_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <View
+        style="@style/full_line_seperator"
+        android:layout_marginTop="@dimen/margin_padding10" />
+
+    <RelativeLayout
+        android:id="@+id/rl_publish_violation"
+        style="@style/more_relativelayout" >
+
+        <TextView style="@style/more_arrows" />
+
+        <ImageView
+            android:id="@+id/dvimage01"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/icon_wtzp"
+            android:paddingBottom="13dip"
+            android:paddingLeft="8dip"
+            android:paddingRight="8dip"
+            android:paddingTop="13dip" />
+
+        <TextView
+            style="@style/more_text"
+            android:layout_toRightOf="@id/dvimage01"
+            android:text="违停抓拍" />
+    </RelativeLayout>
+
+    <View
+        style="@style/full_line_seperator"
+        android:layout_marginLeft="@dimen/margin_padding15" />
+
+    <RelativeLayout
+        android:id="@+id/rl_publish_notice"
+        style="@style/more_relativelayout" >
+
+        <TextView style="@style/more_arrows" />
+
+        <ImageView
+            android:id="@+id/dvimage06"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/icon_wfxwtz"
+            android:paddingBottom="13dip"
+            android:paddingLeft="8dip"
+            android:paddingRight="8dip"
+            android:paddingTop="13dip" />
+
+        <TextView
+            style="@style/more_text"
+            android:layout_toRightOf="@id/dvimage06"
+            android:text="违法行为通知" />
+    </RelativeLayout>
+
+    <View
+        style="@style/full_line_seperator"
+        android:layout_marginLeft="@dimen/margin_padding15" />
+
+    <RelativeLayout
+        android:id="@+id/rl_publish_enforce"
+        style="@style/more_relativelayout" >
+
+        <TextView style="@style/more_arrows" />
+
+        <ImageView
+            android:id="@+id/dvimage02"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/icon_xzqzcs"
+            android:paddingBottom="13dip"
+            android:paddingLeft="8dip"
+            android:paddingRight="8dip"
+            android:paddingTop="13dip" />
+
+        <TextView
+            style="@style/more_text"
+            android:layout_toRightOf="@id/dvimage02"
+            android:text="@string/xzqzcs" />
+    </RelativeLayout>
+
+    <View
+        style="@style/full_line_seperator"
+        android:layout_marginLeft="@dimen/margin_padding15" />
+
+    <RelativeLayout
+        android:id="@+id/rl_publish_summary"
+        style="@style/more_relativelayout" >
+
+        <TextView style="@style/more_arrows" />
+
+        <ImageView
+            android:id="@+id/dvimage03"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/icon_jycxcf"
+            android:paddingBottom="13dip"
+            android:paddingLeft="8dip"
+            android:paddingRight="8dip"
+            android:paddingTop="13dip" />
+
+        <TextView
+            style="@style/more_text"
+            android:layout_toRightOf="@id/dvimage03"
+            android:text="@string/jycfjds" />
+    </RelativeLayout>
+
+    <View style="@style/full_line_seperator" />
+
+</LinearLayout>

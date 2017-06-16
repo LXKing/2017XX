@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/frabg"
+    android:orientation="vertical" >
+
+    <com.xiangxun.widget.TitleView
+        android:id="@+id/tv_comm_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <View
+        style="@style/full_line_seperator"
+        android:layout_marginTop="@dimen/margin_padding10" />
+
+    <RelativeLayout
+        android:id="@+id/rl_publish_daily"
+        style="@style/more_relativelayout" >
+
+        <TextView style="@style/more_arrows" />
+
+        <ImageView
+            android:id="@+id/dvimage01"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/icon_rcqw"
+            android:paddingBottom="13dip"
+            android:paddingLeft="8dip"
+            android:paddingRight="8dip"
+            android:paddingTop="13dip" />
+
+        <TextView
+            style="@style/more_text"
+            android:layout_toRightOf="@id/dvimage01"
+            android:text="@string/rcqw" />
+    </RelativeLayout>
+
+    <View
+        style="@style/full_line_seperator"
+        android:layout_marginLeft="@dimen/margin_padding15" />
+
+    <RelativeLayout
+        android:id="@+id/rl_publish_law"
+        style="@style/more_relativelayout" >
+
+        <TextView style="@style/more_arrows" />
+
+        <ImageView
+            android:id="@+id/dvimage02"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/icon_zfjccl"
+            android:paddingBottom="13dip"
+            android:paddingLeft="8dip"
+            android:paddingRight="8dip"
+            android:paddingTop="13dip" />
+
+        <TextView
+            style="@style/more_text"
+            android:layout_toRightOf="@id/dvimage02"
+            android:text="@string/zfjccl" />
+    </RelativeLayout>
+
+    <View style="@style/full_line_seperator" />
+
+</LinearLayout>

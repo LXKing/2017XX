@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.xiangxun.widget.TitleView
+        android:id="@+id/tv_comm_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="0.5dp"
+        android:layout_marginRight="0.5dp"
+        android:background="@drawable/publish_item_all_background"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/publish_click_selector"
+            android:orientation="horizontal" >
+
+            <com.xiangxun.widget.AutoClearEditText
+                android:id="@+id/search_edit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:hint="输入驾驶证号"
+                android:inputType="text"
+                android:digits="0123456789Xx"
+                android:maxLength="18"
+                android:padding="10dp"
+                android:paddingRight="10dp"
+                android:singleLine="true"
+                android:textColor="@color/color333333"
+                android:textColorHint="#cccccc"
+                android:textSize="@dimen/textSize15" />
+
+            <LinearLayout
+                android:id="@+id/search_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_margin="1dp"
+                android:background="@drawable/bg_line"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/margin_padding15"
+                android:paddingRight="@dimen/margin_padding15" >
+
+                <ToggleButton
+                    android:id="@+id/tgbtn_search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:button="@null"
+                    android:checked="false"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:textColor="@color/blue"
+                    android:textOff="@string/jcbtngetplate"
+                    android:textOn="@string/jcsearchplate"
+                    android:textSize="@dimen/textSize17" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <include layout="@layout/layout_keyboard"/>
+
+    <include
+        layout="@layout/loading"
+        android:visibility="gone" />
+
+    <include
+        layout="@layout/no_data"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/ll_driver_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#eaeaea"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            tools:ignore="UselessParent" >
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/business_detai_background" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_padding10"
+                    android:orientation="vertical" >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="@dimen/margin_padding10"
+                        android:paddingLeft="@dimen/margin_padding10"
+                        android:paddingRight="@dimen/margin_padding10"
+                        android:paddingTop="@dimen/margin_padding10" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/margin_padding1"
+                            android:layout_marginRight="@dimen/margin_padding6"
+                            android:text="|"
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize18" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/driver_info"
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize18" />
+                        <TextView
+                            android:id="@+id/show_driver_pic"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/margin_padding98"
+                            android:text="@string/driver_pic"
+                            android:textColor="@color/blue"
+                            android:textSize="@dimen/textSize15" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@drawable/dashed_line" />
+
+                    <ImageView
+                        android:id="@+id/driver_image"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/margin_padding1"
+                        android:visibility="gone" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingBottom="@dimen/margin_padding10"
+                        android:paddingLeft="@dimen/margin_padding10"
+                        android:paddingRight="@dimen/margin_padding10" >
+
+                        <!-- 姓名-->
+                        <TextView
+                            android:id="@+id/key_xm"
+                            style="@style/KeyLabel"
+                            android:text="@string/driver_xm"  />
+                        <TextView
+                            android:id="@+id/key_xm_value"
+                            android:layout_toRightOf="@+id/key_xm"
+                            style="@style/KeyValue" />
+
+                        <!-- 性别-->
+                        <TextView
+                            android:id="@+id/key_xb"
+                            android:layout_below="@+id/key_xm"
+                            style="@style/KeyLabel"
+                            android:text="@string/driver_xb"  />
+                        <TextView
+                            android:id="@+id/key_xb_value"
+                            android:layout_below="@+id/key_xm"
+                            android:layout_toRightOf="@+id/key_xb"
+                            style="@style/KeyValue" />
+
+                        <!-- 登记住所详细地址-->
+                        <TextView
+                            android:id="@+id/key_djzsxxdz"
+                            android:layout_below="@+id/key_xb"
+                            style="@style/KeyLabel"
+                            android:text="@string/driver_djzsxxdz"  />
+                        <TextView
+                            android:id="@+id/key_djzsxxdz_value"
+                            android:layout_below="@+id/key_xb"
+                            android:layout_toRightOf="@+id/key_djzsxxdz"
+                            style="@style/KeyValue" />
+
+                        <!-- 联系住所详细地址-->
+                        <TextView
+                            android:id="@+id/key_lxzsxxdz"
+                            android:layout_below="@+id/key_djzsxxdz"
+                            style="@style/KeyLabel"
+                            android:text="@string/driver_lxzsxxdz"  />
+                        <TextView
+                            android:id="@+id/key_lxzsxxdz_value"
+                            android:layout_below="@+id/key_djzsxxdz"
+                            android:layout_toRightOf="@+id/key_lxzsxxdz"
+                            style="@style/KeyValue" />
+
+                        <!-- 联系电话-->
+                        <TextView
+                            android:id="@+id/key_lxdh"
+                            android:layout_below="@+id/key_lxzsxxdz"
+                            style="@style/KeyLabel"
+                            android:text="@string/driver_lxdh"  />
+                        <TextView
+                            android:id="@+id/key_lxdh_value"
+                            android:layout_below="@+id/key_lxzsxxdz"
+                            android:layout_toRightOf="@+id/key_lxdh"
+                            style="@style/KeyValue" />
+
+                        <!-- 手机号码-->
+                        <TextView
+                            android:id="@+id/key_sjhm"
+                            android:layout_below="@+id/key_lxdh"
+                            style="@style/KeyLabel"
+                            android:text="@string/driver_sjhm"  />
+                        <TextView
+                            android:id="@+id/key_sjhm_value"
+                            android:layout_below="@+id/key_lxdh"
+                            android:layout_toRightOf="@+id/key_sjhm"
+                            style="@style/KeyValue" />
+
+                        <!-- 档案编号-->
+                        <TextView
+                            android:id="@+id/key_dabh"
+                            android:layout_below="@+id/key_sjhm"
+                            style="@style/KeyLabel"
+                            android:text="@string/driver_dabh"  />
+                        <TextView
+                            android:id="@+id/key_dabh_value"
+                            android:layout_below="@+id/key_sjhm"
+                            android:layout_toRightOf="@+id/key_dabh"
+                            style="@style/KeyValue" />
+
+                        <!-- 准驾车型-->
+                        <TextView
+                            android:id="@+id/key_zjcx"
+                            android:layout_below="@+id/key_dabh"
+                            style="@style/KeyLabel"
+                            android:text="@string/driver_zjcx"  />
+                        <TextView
+                            android:id="@+id/key_zjcx_value"
+                            android:layout_below="@+id/key_dabh"
+                            android:layout_toRightOf="@+id/key_zjcx"
+                            style="@style/KeyValue" />
+                        <!-- 累积记分-->
+                        <TextView
+                            android:id="@+id/key_ljjf"
+                            android:layout_below="@+id/key_zjcx"
+                            style="@style/KeyLabel"
+                            android:text="@string/driver_ljjf"  />
+                        <TextView
+                            android:id="@+id/key_ljjf_value"
+                            android:layout_below="@+id/key_zjcx"
+                            android:layout_toRightOf="@+id/key_ljjf"
+                            style="@style/KeyValue" />
+
+                        <!-- 状态-->
+                        <TextView
+                            android:id="@+id/key_zt"
+                            android:layout_below="@+id/key_ljjf"
+                            style="@style/KeyLabel"
+                            android:text="@string/driver_zt"  />
+                        <TextView
+                            android:id="@+id/key_zt_value"
+                            android:layout_below="@+id/key_ljjf"
+                            android:layout_toRightOf="@+id/key_zt"
+                            style="@style/KeyValue" />
+
+                        <!-- 初次领证日期-->
+                        <TextView
+                            android:id="@+id/key_cclzrq"
+                            android:layout_below="@+id/key_zt"
+                            style="@style/KeyLabel"
+                            android:text="@string/driver_cclzrq"  />
+                        <TextView
+                            android:id="@+id/key_cclzrq_value"
+                            android:layout_below="@+id/key_zt"
+                            android:layout_toRightOf="@+id/key_cclzrq"
+                            style="@style/KeyValue" />
+
+                        <!-- 下一体检日期-->
+                        <TextView
+                            android:id="@+id/key_syrq"
+                            android:layout_below="@+id/key_cclzrq"
+                            style="@style/KeyLabel"
+                            android:text="@string/driver_syrq"  />
+                        <TextView
+                            android:id="@+id/key_syrq_value"
+                            android:layout_below="@+id/key_cclzrq"
+                            android:layout_toRightOf="@+id/key_syrq"
+                            style="@style/KeyValue" />
+
+                        <!-- 有效期始-->
+                        <TextView
+                            android:id="@+id/key_yxqs"
+                            android:layout_below="@+id/key_syrq"
+                            style="@style/KeyLabel"
+                            android:text="@string/driver_yxqs"  />
+                        <TextView
+                            android:id="@+id/key_yxqs_value"
+                            android:layout_below="@+id/key_syrq"
+                            android:layout_toRightOf="@+id/key_yxqs"
+                            style="@style/KeyValue" />
+
+                        <!-- 有效期止-->
+                        <TextView
+                            android:id="@+id/key_yxqz"
+                            android:layout_below="@+id/key_yxqs"
+                            style="@style/KeyLabel"
+                            android:text="@string/driver_yxqz"  />
+                        <TextView
+                            android:id="@+id/key_yxqz_value"
+                            android:layout_below="@+id/key_yxqs"
+                            android:layout_toRightOf="@+id/key_yxqz"
+                            style="@style/KeyValue" />
+
+                        <!-- 暂住证明-->
+                        <TextView
+                            android:id="@+id/key_zzzm"
+                            android:layout_below="@+id/key_yxqz"
+                            style="@style/KeyLabel"
+                            android:text="@string/driver_zzzm"  />
+                        <TextView
+                            android:id="@+id/key_zzzm_value"
+                            android:layout_below="@+id/key_yxqz"
+                            android:layout_toRightOf="@+id/key_zzzm"
+                            style="@style/KeyValue" />
+
+                        <!-- 更新时间-->
+                        <TextView
+                            android:id="@+id/key_gxsj"
+                            android:layout_below="@+id/key_zzzm"
+                            style="@style/KeyLabel"
+                            android:text="@string/driver_gxsj"  />
+                        <TextView
+                            android:id="@+id/key_gxsj_value"
+                            android:layout_below="@+id/key_zzzm"
+                            android:layout_toRightOf="@+id/key_gxsj"
+                            style="@style/KeyValue" />
+
+                        <!-- 证芯编号-->
+                        <TextView
+                            android:id="@+id/key_zxbh"
+                            android:layout_below="@+id/key_gxsj"
+                            style="@style/KeyLabel"
+                            android:text="@string/driver_zxbh"  />
+                        <TextView
+                            android:id="@+id/key_zxbh_value"
+                            android:layout_below="@+id/key_gxsj"
+                            android:layout_toRightOf="@+id/key_zxbh"
+                            style="@style/KeyValue" />
+
+                        <!-- 发证机关-->
+                        <TextView
+                            android:id="@+id/key_fzjg"
+                            android:layout_below="@+id/key_zxbh"
+                            style="@style/KeyLabel"
+                            android:text="@string/driver_fzjg"  />
+                        <TextView
+                            android:id="@+id/key_fzjg_value"
+                            android:layout_below="@+id/key_zxbh"
+                            android:layout_toRightOf="@+id/key_fzjg"
+                            style="@style/KeyValue" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <com.xiangxun.widget.WaterMark
+                    android:id="@+id/water_mark"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone"     />
+            </FrameLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</LinearLayout>

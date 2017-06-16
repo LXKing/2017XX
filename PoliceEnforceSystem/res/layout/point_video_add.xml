@@ -1,0 +1,113 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/custom_call_background"
+    android:orientation="vertical"
+    android:padding="1dp">
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/publish_select_dialog_title_background"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/id_point_video_add_consel"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:background="@drawable/left_click_selector"
+            android:gravity="center"
+            android:paddingLeft="@dimen/margin_padding15"
+            android:paddingRight="@dimen/margin_padding10"
+            android:text="@string/dialog_but1"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/textSize15"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/id_point_video_add_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="选择勤务类型"
+            android:textColor="@color/color333333"
+            android:textSize="@dimen/textSize17" />
+
+
+        <TextView
+            android:id="@+id/id_point_video_add_submint"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_gravity="right"
+            android:background="@drawable/left_click_selector"
+            android:gravity="center"
+            android:paddingLeft="@dimen/margin_padding15"
+            android:paddingRight="@dimen/margin_padding10"
+            android:text="@string/dialog_but2"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/textSize15"
+            android:visibility="visible" />
+    </FrameLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="#c8c8c8" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/publish_select_dialog_title_background"
+        android:orientation="horizontal"
+        android:padding="@dimen/margin_padding10">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="姓名："
+            android:textColor="@color/color333333"
+            android:textSize="@dimen/textSize17" />
+
+        <com.xiangxun.widget.AutoClearEditText
+            android:id="@+id/id_point_video_add_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login_editbox"
+            android:hint="补充姓名" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="#c8c8c8" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/publish_select_dialog_title_background"
+        android:orientation="horizontal"
+        android:padding="@dimen/margin_padding10">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="号码："
+            android:textColor="@color/color333333"
+            android:textSize="@dimen/textSize17" />
+
+        <com.xiangxun.widget.AutoClearEditText
+            android:id="@+id/id_point_video_add_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login_editbox"
+            android:hint="补充号码" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

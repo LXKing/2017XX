@@ -1,0 +1,730 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical" >
+
+        <com.xiangxun.widget.TitleView
+            android:id="@+id/tv_comm_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+        <com.xiangxun.widget.MyScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tv_comm_title"
+            android:layout_marginBottom="50dip" >
+
+            <LinearLayout
+                android:id="@+id/main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_comm_title"
+                android:orientation="vertical" >
+
+                <include layout="@layout/warn_info_layout" />
+                <include layout="@layout/publish_add_picture" />
+                <include layout="@layout/common_photo_layout" />
+                <!-- 号牌号码 -->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/publish_item_background"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="center_vertical"
+                        android:text="号牌号码"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textSize15" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/publish_click_selector"
+                        android:orientation="horizontal" >
+
+                        <View style="@style/full_ver_line_seperatorbyfublish" />
+
+                        <TextView
+                            android:id="@+id/tv_hphm"
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:gravity="center_vertical"
+                            android:hint=""
+                            android:singleLine="true"
+                            android:textColor="@color/color333333"
+                            android:textColorHint="#cccccc"
+                            android:textSize="@dimen/textSize15" />
+                    </LinearLayout>
+                </LinearLayout>
+                <!-- 处理民警 -->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/publish_item_background"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="center_vertical"
+                        android:text="处理民警"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textSize15" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/publish_click_selector"
+                        android:orientation="horizontal" >
+
+                        <View style="@style/full_ver_line_seperatorbyfublish" />
+
+                        <EditText
+                            android:id="@+id/edtPolice"
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:gravity="center_vertical"
+                            android:hint=""
+                            android:maxLength="150"
+                            android:singleLine="true"
+                            android:textColor="@color/color333333"
+                            android:textColorHint="#cccccc"
+                            android:textSize="@dimen/textSize15" />
+                    </LinearLayout>
+                </LinearLayout>
+                <!-- 处理时间 -->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/publish_item_background"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="center_vertical"
+                        android:text="处理时间"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textSize15" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/publish_click_selector"
+                        android:orientation="horizontal" >
+
+                        <View style="@style/full_ver_line_seperatorbyfublish" />
+
+                        <TextView
+                            android:id="@+id/dodate"
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:gravity="center_vertical"
+                            android:hint=""
+                            android:singleLine="true"
+                            android:textColor="@color/color333333"
+                            android:textColorHint="#cccccc"
+                            android:textSize="@dimen/textSize15" />
+                    </LinearLayout>
+                </LinearLayout>
+                <!-- 拦截车辆情况 -->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/publish_item_background"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="center_vertical"
+                        android:text="拦截情况"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textSize15" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_isCapture"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/publish_click_selector"
+                        android:orientation="horizontal" >
+
+                        <View style="@style/full_ver_line_seperatorbyfublish" />
+
+                        <TextView
+                            android:id="@+id/isCapture"
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:gravity="center_vertical"
+                            android:hint="请选择拦截情况"
+                            android:textColor="@color/color333333"
+                            android:textColorHint="#cccccc"
+                            android:textSize="@dimen/textSize15" />
+                        <ImageView
+                            android:id="@+id/iv_isCapture"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:layout_gravity="bottom|right"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/icon_pull" />
+                    </LinearLayout>
+                </LinearLayout>
+                <!-- 未拦截到原因 -->
+                <LinearLayout
+                    android:id="@+id/xl_noCaptureReason"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/publish_item_background"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="center_vertical"
+                        android:text="未拦到原因"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textSize15" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_noCaptureReason"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/publish_click_selector"
+                        android:orientation="horizontal" >
+
+                        <View style="@style/full_ver_line_seperatorbyfublish" />
+
+                        <TextView
+                            android:id="@+id/noCaptureReason"
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:gravity="center_vertical"
+                            android:hint="请选择未拦截到原因"
+                            android:textColor="@color/color333333"
+                            android:textColorHint="#cccccc"
+                            android:textSize="@dimen/textSize15" />
+                        <ImageView
+                            android:id="@+id/iv_noCaptureReason"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:layout_gravity="bottom|right"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/icon_pull" />
+                    </LinearLayout>
+                </LinearLayout>
+                <!-- 是否嫌疑车辆 -->
+                <LinearLayout
+                    android:id="@+id/xl_isSuspect"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/publish_item_background"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="center_vertical"
+                        android:text="嫌疑车辆"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textSize15" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_isSuspect"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/publish_click_selector"
+                        android:orientation="horizontal" >
+
+                        <View style="@style/full_ver_line_seperatorbyfublish" />
+
+                        <TextView
+                            android:id="@+id/isSuspect"
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:gravity="center_vertical"
+                            android:hint="请选择是否嫌疑车辆"
+                            android:textColor="@color/color333333"
+                            android:textColorHint="#cccccc"
+                            android:textSize="@dimen/textSize15" />
+                        <ImageView
+                            android:id="@+id/iv_isSuspect"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:layout_gravity="bottom|right"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/icon_pull" />
+                    </LinearLayout>
+                </LinearLayout>
+                <!-- 非嫌疑车辆原因 -->
+                <LinearLayout
+                    android:id="@+id/xl_noSupectReason"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/publish_item_background"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="center_vertical"
+                        android:text="非嫌疑原因"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textSize15" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_noSupectReason"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/publish_click_selector"
+                        android:orientation="horizontal" >
+
+                        <View style="@style/full_ver_line_seperatorbyfublish" />
+
+                        <TextView
+                            android:id="@+id/noSuspectReason"
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:gravity="center_vertical"
+                            android:hint="请选择非嫌疑车辆原因"
+                            android:textColor="@color/color333333"
+                            android:textColorHint="#cccccc"
+                            android:textSize="@dimen/textSize15" />
+                        <ImageView
+                            android:id="@+id/iv_noSuspectReason"
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:layout_gravity="bottom|right"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/icon_pull" />
+                    </LinearLayout>
+                </LinearLayout>
+                <!-- 处理结果 -->
+                <LinearLayout
+                    android:id="@+id/xl_doResult"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/publish_item_background"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="center_vertical"
+                        android:text="处置方式"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textSize15" />
+
+                    <View
+                        android:layout_marginLeft="10dp"
+                        style="@style/full_ver_line_seperatorbyfublish" />
+                    <LinearLayout
+                        android:id="@+id/ll_doResult"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/publish_click_selector"
+                        android:orientation="vertical" >
+                    </LinearLayout>
+                </LinearLayout>
+                <!-- 文书类型 -->
+                <LinearLayout
+                    android:id="@+id/xl_doType"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/publish_item_background"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="center_vertical"
+                        android:text="文书类型"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textSize15" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:id="@+id/ll_doType"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:background="@drawable/publish_click_selector"
+                            android:layout_weight="3"
+                            android:orientation="horizontal" >
+
+                            <View style="@style/full_ver_line_seperatorbyfublish" />
+
+                            <TextView
+                                android:id="@+id/tv_doType"
+                                android:layout_width="0dp"
+                                android:layout_height="fill_parent"
+                                android:layout_marginLeft="5dp"
+                                android:layout_weight="1"
+                                android:background="@null"
+                                android:gravity="center_vertical"
+                                android:hint="请选择文书类型"
+                                android:textColor="@color/color333333"
+                                android:textColorHint="#cccccc"
+                                android:textSize="@dimen/textSize15"
+                                />
+                            <ImageView
+                                android:id="@+id/iv_doType"
+                                android:layout_width="10dp"
+                                android:layout_height="10dp"
+                                android:layout_gravity="bottom|right"
+                                android:layout_marginBottom="10dp"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/icon_pull" />
+                        </LinearLayout>
+                        <TextView
+                            android:id="@+id/tv_doTable"
+                            android:layout_width="wrap_content"
+                            android:layout_height="fill_parent"
+                            android:layout_marginTop="@dimen/margin_padding1"
+                            android:layout_marginRight="@dimen/margin_padding1"
+                            android:paddingLeft="@dimen/margin_padding5"
+                            android:paddingRight="@dimen/margin_padding5"
+                            android:background="@drawable/bg_line"
+                            android:layout_alignParentRight="true"
+                            android:gravity="center_vertical"
+                            android:text="出具文书"
+                            android:textColor="@color/blue"
+                            android:textSize="@dimen/textSize15"
+                            android:visibility="visible"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <!-- 文书编号 -->
+                <LinearLayout
+                    android:id="@+id/xl_TypeId"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/publish_item_background"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="center_vertical"
+                        android:text="文书编号"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textSize15" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/publish_click_selector"
+                        android:orientation="horizontal" >
+
+                        <View style="@style/full_ver_line_seperatorbyfublish" />
+
+                        <EditText
+                            android:id="@+id/edtTypeId"
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:gravity="center_vertical"
+                            android:hint="请输入文书编号"
+                            android:inputType="number"
+                            android:maxLength="25"
+                            android:maxLines="1"
+                            android:textColor="@color/color333333"
+                            android:textColorHint="#cccccc"
+                            android:textSize="@dimen/textSize15" />
+                    </LinearLayout>
+                </LinearLayout>
+                <!-- 移交部门 -->
+                <LinearLayout
+                    android:id="@+id/xl_Moveepartment"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/publish_item_background"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="center_vertical"
+                        android:text="移交部门"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textSize15" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/publish_click_selector"
+                        android:orientation="horizontal" >
+
+                        <View style="@style/full_ver_line_seperatorbyfublish" />
+
+                        <EditText
+                            android:id="@+id/edtMoveDepartment"
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:gravity="center_vertical"
+                            android:hint="请输入移交部门"
+                            android:maxLength="30"
+                            android:maxLines="1"
+                            android:textColor="@color/color333333"
+                            android:textColorHint="#cccccc"
+                            android:textSize="@dimen/textSize15" />
+                    </LinearLayout>
+                </LinearLayout>
+                <!-- 联系人 -->
+                <LinearLayout
+                    android:id="@+id/xl_MovePerson"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/publish_item_background"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="center_vertical"
+                        android:text="联系人"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textSize15" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/publish_click_selector"
+                        android:orientation="horizontal" >
+
+                        <View style="@style/full_ver_line_seperatorbyfublish" />
+
+                        <EditText
+                            android:id="@+id/edtMovePerson"
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:gravity="center_vertical"
+                            android:hint="请输联系人"
+                            android:maxLength="30"
+                            android:maxLines="1"
+                            android:textColor="@color/color333333"
+                            android:textColorHint="#cccccc"
+                            android:textSize="@dimen/textSize15" />
+                    </LinearLayout>
+                </LinearLayout>
+                <!-- 联系电话 -->
+                <LinearLayout
+                    android:id="@+id/xl_MovePhone"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/publish_item_background"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="center_vertical"
+                        android:text="联系电话"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textSize15" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/publish_click_selector"
+                        android:orientation="horizontal" >
+
+                        <View style="@style/full_ver_line_seperatorbyfublish" />
+
+                        <EditText
+                            android:id="@+id/edtMovePhone"
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:gravity="center_vertical"
+                            android:hint="请输入联系电话"
+                            android:maxLength="13"
+                            android:maxLines="1"
+                            android:inputType="phone"
+                            android:textColor="@color/color333333"
+                            android:textColorHint="#cccccc"
+                            android:textSize="@dimen/textSize15" />
+                    </LinearLayout>
+                </LinearLayout>
+                <!-- 拦截情况描述-->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/publish_item_background"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="center_vertical"
+                        android:text="情况描述"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textSize15" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/publish_click_selector"
+                        android:orientation="horizontal" >
+
+                        <View style="@style/full_ver_line_seperatorbyfublish" />
+
+                        <EditText
+                            android:id="@+id/doNote"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:paddingBottom="5dp"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:gravity="center_vertical"
+                            android:layout_gravity="center_vertical"
+                            android:hint="请输入拦截情况描述"
+                            android:maxLength="150"
+                            android:singleLine="true"
+                            android:textColor="@color/color333333"
+                            android:textColorHint="#cccccc"
+                            android:textSize="@dimen/textSize15" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="2px"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#d1d1d1" />
+            </LinearLayout>
+        </com.xiangxun.widget.MyScrollView>
+
+        <Button
+            android:id="@+id/upload"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="8dip"
+            android:layout_marginBottom="@dimen/margin_padding5"
+            android:background="@drawable/btn_blue_selctor"
+            android:text="@string/upload"
+            android:textColor="@drawable/textcolor_selector" />
+    </RelativeLayout>
+    <!-- 浮层半透明 -->
+
+    <View
+        android:id="@+id/v_supernatant_background"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#50000000"
+        android:visibility="gone" >
+    </View>
+
+</merge>

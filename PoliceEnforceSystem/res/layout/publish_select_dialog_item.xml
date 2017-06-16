@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/margin_padding13"
+    android:paddingLeft="@dimen/margin_padding15"
+    android:paddingRight="@dimen/margin_padding10"
+    android:paddingTop="@dimen/margin_padding13" >
+
+    <TextView
+        android:id="@+id/tv_publish_slect_dialog_string"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/color666666"
+        android:textSize="@dimen/textSize15" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+</LinearLayout>

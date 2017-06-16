@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="liblinphone">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/liblinphone.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/libs/liblinphone.jar!/common" />
+      <root url="jar://$PROJECT_DIR$/libs/liblinphone.jar!/j2se" />
+    </SOURCES>
+  </library>
+</component>

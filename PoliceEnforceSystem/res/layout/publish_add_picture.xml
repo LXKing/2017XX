@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/woyaozhuandian_add_picture_show"
+    android:layout_width="fill_parent"
+    android:layout_height="108dp"
+    android:background="@color/color_d1d1d1"
+    android:gravity="center_horizontal"
+    android:orientation="horizontal"
+    android:padding="@dimen/margin_padding10" >
+
+    <ImageView
+        android:id="@+id/iv_publish_add_picture"
+        android:layout_width="@dimen/layoutSize86"
+        android:layout_height="@dimen/layoutSize86"
+        android:background="@drawable/iv_selecter_publish_add_picture" />
+
+    <com.xiangxun.widget.NoViewPager
+        android:id="@+id/vp_publish_add_pictures"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/layoutSize86"
+        android:layout_marginLeft="@dimen/margin_padding5"
+        android:visibility="gone" />
+
+</LinearLayout>

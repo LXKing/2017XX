@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_bg"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_padding5"
+    android:background="@drawable/list_bg_blue_selector"  >
+    
+    <TextView
+        android:id="@+id/messagetype_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:paddingLeft="@dimen/margin_padding8"
+        android:paddingTop="@dimen/margin_padding10"
+        android:text="123"
+        android:singleLine="true"
+        android:textColor="@drawable/textcolor_selector"
+        android:textSize="15sp"
+        android:textStyle="bold"
+         />
+    <TextView
+        android:id="@+id/readed_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_below="@+id/messagetype_name"
+		android:layout_alignLeft="@+id/messagetype_name"
+		android:paddingLeft="@dimen/margin_padding8"
+		android:paddingTop="@dimen/margin_padding5"
+        android:singleLine="true"
+        android:text="全部消息 12"
+        android:textSize="12sp"
+        android:textColor="@drawable/textcolor_selector"
+         />
+
+    <TextView
+        android:id="@+id/noread_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_below="@+id/messagetype_name"
+		android:layout_toLeftOf="@+id/message_arrows"
+		android:paddingRight="@dimen/margin_padding10"
+		android:layout_centerVertical="true"		
+        android:singleLine="true"
+        android:text="未读 12"
+        android:textSize="12sp"
+        android:textColor="@drawable/textcolor_selector"
+         />    
+    
+    <TextView
+        android:id="@+id/message_arrows"
+        style="@style/more_arrows" />
+
+</RelativeLayout>

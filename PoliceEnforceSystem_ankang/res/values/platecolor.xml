@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-	<string-array name="platecolor">
-	    <item>蓝</item>
-	    <item>白</item>
-	    <item>黄</item>
-	</string-array>
-    
-</resources>

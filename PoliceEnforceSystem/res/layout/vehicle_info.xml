@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CCCCCC"
+    android:orientation="vertical" >
+
+    <com.xiangxun.widget.TitleView
+        android:id="@+id/tv_comm_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:background="@drawable/publish_item_all_background"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/ll_publish_click_platenum"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/publish_click_selector"
+            android:orientation="vertical" >
+
+            <com.xiangxun.widget.AutoClearEditText
+                android:id="@+id/search_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:background="@null"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:hint="输入车辆号牌号码"
+                android:inputType="text"
+                android:text="@string/def_platenum"
+                android:maxLength="7"
+                android:padding="8dp"
+                android:paddingRight="10dp"
+                android:singleLine="true"
+                android:textColor="@color/color333333"
+                android:textColorHint="#cccccc"
+                android:textSize="@dimen/textSize15" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="2px"
+                android:background="#d1d1d1" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="visible" >
+
+                <LinearLayout
+                    android:id="@+id/ll_publish_click_platetype"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/publish_click_selector"
+                    android:orientation="horizontal"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp" >
+
+                    <TextView
+                        android:id="@+id/tv_publish_platetype"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:gravity="center_vertical"
+                        android:hint="选择号牌种类"
+                        android:paddingLeft="8dp"
+                        android:textColor="@color/color333333"
+                        android:textColorHint="#cccccc"
+                        android:textSize="@dimen/textSize15" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="bottom"
+                        android:layout_marginRight="3dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/icon_pull" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_driver_plate_num"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_margin="1dp"
+            android:background="@drawable/bg_line"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/margin_padding15"
+            android:paddingRight="@dimen/margin_padding15" >
+
+            <ToggleButton
+                android:id="@+id/tgbtn_search_plate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:button="@null"
+                android:checked="false"
+                android:clickable="false"
+                android:focusable="false"
+                android:textColor="@color/blue"
+                android:textOff="@string/jcbtngetplate"
+                android:textOn="@string/jcsearchplate"
+                android:textSize="@dimen/textSize15" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/ll_vio_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/tv_vio_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="10dp"
+            android:background="@null"
+            android:gravity="right"
+            android:text="违法查询"
+            android:padding="4dp"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/textSize18" />
+    </RelativeLayout>
+
+    <include layout="@layout/layout_keyboard"/>
+
+    <include
+        layout="@layout/loading"
+        android:visibility="gone" />
+
+    <include
+        layout="@layout/no_data"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/ll_vehicle_content"
+        android:layout_width="match_parent"
+        android:background="#eaeaea"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            tools:ignore="UselessParent" >
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/business_detai_background" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_padding10"
+                    android:orientation="vertical" >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="@dimen/margin_padding10"
+                        android:paddingLeft="@dimen/margin_padding10"
+                        android:paddingRight="@dimen/margin_padding10"
+                        android:paddingTop="@dimen/margin_padding10" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/margin_padding1"
+                            android:layout_marginRight="@dimen/margin_padding6"
+                            android:text="|"
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize18" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/vehicle_info"
+                            android:textColor="@color/color333333"
+                            android:textSize="@dimen/textSize18" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@drawable/dashed_line" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingBottom="@dimen/margin_padding10"
+                        android:paddingLeft="@dimen/margin_padding10"
+                        android:paddingRight="@dimen/margin_padding10" >
+
+                        <!-- 机动车序号-->
+                        <TextView
+                            android:id="@+id/key_xh"
+                            style="@style/KeyLabel"
+                            android:text="@string/vehicle_xh"  />
+                        <TextView
+                            android:id="@+id/key_xh_value"
+                            android:layout_toRightOf="@+id/key_xh"
+                            style="@style/KeyValue" />
+
+                        <!-- 号牌种类-->
+                        <TextView
+                            android:id="@+id/key_hpzl"
+                            android:layout_below="@+id/key_xh"
+                            style="@style/KeyLabel"
+                            android:text="@string/vehicle_hpzl"  />
+                        <TextView
+                            android:id="@+id/key_hpzl_value"
+                            android:layout_below="@+id/key_xh"
+                            android:layout_toRightOf="@+id/key_hpzl"
+                            style="@style/KeyValue" />
+
+                        <!-- 号牌号码-->
+                        <TextView
+                            android:id="@+id/key_hphm"
+                            android:layout_below="@+id/key_hpzl"
+                            style="@style/KeyLabel"
+                            android:text="@string/vehicle_hphm"  />
+                        <TextView
+                            android:id="@+id/key_hphm_value"
+                            android:layout_below="@+id/key_hpzl"
+                            android:layout_toRightOf="@+id/key_hphm"
+                            style="@style/KeyValue" />
+
+                        <!-- 中文品牌-->
+                        <TextView
+                            android:id="@+id/key_clpp"
+                            android:layout_below="@+id/key_hphm"
+                            style="@style/KeyLabel"
+                            android:text="@string/vehicle_clpp1"  />
+                        <TextView
+                            android:id="@+id/key_clpp_value"
+                            android:layout_below="@+id/key_hphm"
+                            android:layout_toRightOf="@+id/key_clpp"
+                            style="@style/KeyValue" />
+
+                        <!-- 车辆型号-->
+                        <TextView
+                            android:id="@+id/key_clxh"
+                            android:layout_below="@+id/key_clpp"
+                            style="@style/KeyLabel"
+                            android:text="@string/vehicle_clxh"  />
+                        <TextView
+                            android:id="@+id/key_clxh_value"
+                            android:layout_below="@+id/key_clpp"
+                            android:layout_toRightOf="@+id/key_clxh"
+                            style="@style/KeyValue" />
+
+                        <!-- 车辆类型-->
+                        <TextView
+                            android:id="@+id/key_cllx"
+                            android:layout_below="@+id/key_clxh"
+                            style="@style/KeyLabel"
+                            android:text="@string/vehicle_cllx"  />
+                        <TextView
+                            android:id="@+id/key_cllx_value"
+                            android:layout_below="@+id/key_clxh"
+                            android:layout_toRightOf="@+id/key_cllx"
+                            style="@style/KeyValue" />
+
+                        <!-- 车身颜色-->
+                        <TextView
+                            android:id="@+id/key_csys"
+                            android:layout_below="@+id/key_cllx"
+                            style="@style/KeyLabel"
+                            android:text="@string/vehicle_csys"  />
+                        <TextView
+                            android:id="@+id/key_csys_value"
+                            android:layout_below="@+id/key_cllx"
+                            android:layout_toRightOf="@+id/key_csys"
+                            style="@style/KeyValue" />
+
+                        <!-- 使用性质-->
+                        <TextView
+                            android:id="@+id/key_syxz"
+                            android:layout_below="@+id/key_csys"
+                            style="@style/KeyLabel"
+                            android:text="@string/vehicle_syxz"  />
+                        <TextView
+                            android:id="@+id/key_syxz_value"
+                            android:layout_below="@+id/key_csys"
+                            android:layout_toRightOf="@+id/key_syxz"
+                            style="@style/KeyValue" />
+                        <!-- 机动车所有人-->
+                        <TextView
+                            android:id="@+id/key_syr"
+                            android:layout_below="@+id/key_syxz"
+                            style="@style/KeyLabel"
+                            android:text="@string/vehicle_syr"  />
+                        <TextView
+                            android:id="@+id/key_syr_value"
+                            android:layout_below="@+id/key_syxz"
+                            android:layout_toRightOf="@+id/key_syr"
+                            style="@style/KeyValue" />
+
+                        <!-- 联系电话-->
+                        <TextView
+                            android:id="@+id/key_lxdh"
+                            android:layout_below="@+id/key_syr"
+                            style="@style/KeyLabel"
+                            android:text="@string/vehicle_lxdh"  />
+                        <TextView
+                            android:id="@+id/key_lxdh_value"
+                            android:layout_below="@+id/key_syr"
+                            android:layout_toRightOf="@+id/key_lxdh"
+                            style="@style/KeyValue" />
+
+                        <!-- 联系地址-->
+                        <TextView
+                            android:id="@+id/key_lxdz"
+                            android:layout_below="@+id/key_lxdh"
+                            style="@style/KeyLabel"
+                            android:text="@string/vehicle_lxdz"  />
+                        <TextView
+                            android:id="@+id/key_lxdz_value"
+                            android:layout_below="@+id/key_lxdh"
+                            android:layout_toRightOf="@+id/key_lxdz"
+                            style="@style/KeyValue" />
+
+                        <!-- 机动车状态-->
+                        <TextView
+                            android:id="@+id/key_zt"
+                            android:layout_below="@+id/key_lxdz"
+                            style="@style/KeyLabel"
+                            android:text="@string/vehicle_zt"  />
+                        <TextView
+                            android:id="@+id/key_zt_value"
+                            android:layout_below="@+id/key_lxdz"
+                            android:layout_toRightOf="@+id/key_zt"
+                            style="@style/KeyValue" />
+
+                        <!-- 车辆用途-->
+                        <TextView
+                            android:id="@+id/key_clyt"
+                            android:layout_below="@+id/key_zt"
+                            style="@style/KeyLabel"
+                            android:text="@string/vehicle_clyt"  />
+                        <TextView
+                            android:id="@+id/key_clyt_value"
+                            android:layout_below="@+id/key_zt"
+                            android:layout_toRightOf="@+id/key_clyt"
+                            style="@style/KeyValue" />
+
+                        <!-- 用途属性-->
+                        <TextView
+                            android:id="@+id/key_ytsx"
+                            android:layout_below="@+id/key_clyt"
+                            style="@style/KeyLabel"
+                            android:text="@string/vehicle_ytsx"  />
+                        <TextView
+                            android:id="@+id/key_ytsx_value"
+                            android:layout_below="@+id/key_clyt"
+                            android:layout_toRightOf="@+id/key_ytsx"
+                            style="@style/KeyValue" />
+
+                        <!-- 核定载客-->
+                        <TextView
+                            android:id="@+id/key_hdzk"
+                            android:layout_below="@+id/key_ytsx"
+                            style="@style/KeyLabel"
+                            android:text="@string/vehicle_hdzk"  />
+                        <TextView
+                            android:id="@+id/key_hdzk_value"
+                            android:layout_below="@+id/key_ytsx"
+                            android:layout_toRightOf="@+id/key_hdzk"
+                            style="@style/KeyValue" />
+
+                        <!-- 核定载质量-->
+                        <TextView
+                            android:id="@+id/key_hdzzl"
+                            android:layout_below="@+id/key_hdzk"
+                            style="@style/KeyLabel"
+                            android:text="@string/vehicle_hdzzl"  />
+                        <TextView
+                            android:id="@+id/key_hdzzl_value"
+                            android:layout_below="@+id/key_hdzk"
+                            android:layout_toRightOf="@+id/key_hdzzl"
+                            style="@style/KeyValue" />
+
+                        <!-- 车辆识别代号-->
+                        <TextView
+                            android:id="@+id/key_clsbdh"
+                            android:layout_below="@+id/key_hdzzl"
+                            style="@style/KeyLabel"
+                            android:text="@string/vehicle_clsbdh"  />
+                        <TextView
+                            android:id="@+id/key_clsbdh_value"
+                            android:layout_below="@+id/key_hdzzl"
+                            android:layout_toRightOf="@+id/key_clsbdh"
+                            style="@style/KeyValue" />
+
+                        <!-- 检验有效期止-->
+                        <TextView
+                            android:id="@+id/key_yxqz"
+                            android:layout_below="@+id/key_clsbdh"
+                            style="@style/KeyLabel"
+                            android:text="@string/vehicle_yxqz"  />
+                        <TextView
+                            android:id="@+id/key_yxqz_value"
+                            android:layout_below="@+id/key_clsbdh"
+                            android:layout_toRightOf="@+id/key_yxqz"
+                            style="@style/KeyValue" />
+
+                        <!-- 保险终止日期-->
+                        <TextView
+                            android:id="@+id/key_bxzzrq"
+                            android:layout_below="@+id/key_yxqz"
+                            style="@style/KeyLabel"
+                            android:text="@string/vehicle_bxzzrq"  />
+                        <TextView
+                            android:id="@+id/key_bxzzrq_value"
+                            android:layout_below="@+id/key_yxqz"
+                            android:layout_toRightOf="@+id/key_bxzzrq"
+                            style="@style/KeyValue" />
+
+                        <!-- 检验合格标志-->
+                        <TextView
+                            android:id="@+id/key_jyhgbzbh"
+                            android:layout_below="@+id/key_bxzzrq"
+                            style="@style/KeyLabel"
+                            android:text="@string/vehicle_jyhgbzbh"  />
+                        <TextView
+                            android:id="@+id/key_jyhgbzbh_value"
+                            android:layout_below="@+id/key_bxzzrq"
+                            android:layout_toRightOf="@+id/key_jyhgbzbh"
+                            style="@style/KeyValue" />
+
+                        <!-- 行驶证证芯编号-->
+                        <TextView
+                            android:id="@+id/key_xszbh"
+                            android:layout_below="@+id/key_jyhgbzbh"
+                            style="@style/KeyLabel"
+                            android:text="@string/vehicle_xszbh"  />
+                        <TextView
+                            android:id="@+id/key_xszbh_value"
+                            android:layout_below="@+id/key_jyhgbzbh"
+                            android:layout_toRightOf="@+id/key_xszbh"
+                            style="@style/KeyValue" />
+
+                        <!-- 初次登记日期-->
+                        <TextView
+                            android:id="@+id/key_ccdjrq"
+                            android:layout_below="@+id/key_xszbh"
+                            style="@style/KeyLabel"
+                            android:text="@string/vehicle_ccdjrq"  />
+                        <TextView
+                            android:id="@+id/key_ccdjrq_value"
+                            android:layout_below="@+id/key_xszbh"
+                            android:layout_toRightOf="@+id/key_ccdjrq"
+                            style="@style/KeyValue" />
+
+                        <!-- 最近定检日期-->
+                        <TextView
+                            android:id="@+id/key_djrq"
+                            android:layout_below="@+id/key_ccdjrq"
+                            style="@style/KeyLabel"
+                            android:text="@string/vehicle_djrq"  />
+                        <TextView
+                            android:id="@+id/key_djrq_value"
+                            android:layout_below="@+id/key_ccdjrq"
+                            android:layout_toRightOf="@+id/key_djrq"
+                            style="@style/KeyValue" />
+
+                        <!-- 强制报废期止-->
+                        <TextView
+                            android:id="@+id/key_qzbfqz"
+                            android:layout_below="@+id/key_djrq"
+                            style="@style/KeyLabel"
+                            android:text="@string/vehicle_qzbfqz"  />
+                        <TextView
+                            android:id="@+id/key_qzbfqz_value"
+                            android:layout_below="@+id/key_djrq"
+                            android:layout_toRightOf="@+id/key_qzbfqz"
+                            style="@style/KeyValue" />
+
+                        <!-- 发动机号-->
+                        <TextView
+                            android:id="@+id/key_fdjh"
+                            android:layout_below="@+id/key_qzbfqz"
+                            style="@style/KeyLabel"
+                            android:text="@string/vehicle_fdjh"  />
+                        <TextView
+                            android:id="@+id/key_fdjh_value"
+                            android:layout_below="@+id/key_qzbfqz"
+                            android:layout_toRightOf="@+id/key_fdjh"
+                            style="@style/KeyValue" />
+
+                        <!-- 抵押标记-->
+                        <TextView
+                            android:id="@+id/key_dybj"
+                            android:layout_below="@+id/key_fdjh"
+                            style="@style/KeyLabel"
+                            android:text="@string/vehicle_dybj"  />
+                        <TextView
+                            android:id="@+id/key_dybj_value"
+                            android:layout_below="@+id/key_fdjh"
+                            android:layout_toRightOf="@+id/key_dybj"
+                            style="@style/KeyValue" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <com.xiangxun.widget.WaterMark
+                    android:id="@+id/water_mark"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone"     />
+
+            </FrameLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</LinearLayout>

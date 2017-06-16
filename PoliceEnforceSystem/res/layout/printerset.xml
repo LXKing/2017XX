@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <com.xiangxun.widget.TitleView
+        android:id="@+id/tv_comm_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible" />
+
+    <RelativeLayout
+		android:id="@+id/rl_is_print"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+         >
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical"
+	        android:padding="@dimen/margin_padding10" >
+	
+	        <TextView
+	            style="@style/more_text"
+	            android:text="是否打印" />
+	
+	        <TextView
+	            android:id="@+id/tv_is_print"
+	            style="@style/more_text2"
+	            android:text="不打印" />
+	    </LinearLayout>
+	    
+	    <ImageView
+	        android:id="@+id/image_is_print"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+	        android:layout_marginRight="@dimen/margin_padding10"
+	        android:layout_centerVertical="true"
+	        />
+	</RelativeLayout>
+
+    <View style="@style/full_line_seperator" />
+    
+    <LinearLayout
+        android:id="@+id/rl_def_printer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_padding10" >
+
+        <TextView
+            style="@style/more_text"
+            android:text="默认打印机" />
+
+        <TextView
+            android:id="@+id/tv_def_printer"
+            style="@style/more_text2"
+            android:text="无" />
+    </LinearLayout>
+	
+    <View style="@style/full_line_seperator" />
+
+    <ListView
+        android:id="@+id/printer_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/white"
+        android:layout_marginLeft="@dimen/margin_padding10"
+        android:layout_marginRight="@dimen/margin_padding10"
+        android:divider="#aaa"
+        android:dividerHeight="1px" />
+
+</LinearLayout>

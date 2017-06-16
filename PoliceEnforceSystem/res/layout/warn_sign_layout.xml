@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white" >
+
+        <com.xiangxun.widget.TitleView
+            android:id="@+id/tv_comm_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+        <com.xiangxun.widget.MyScrollView
+            android:id="@+id/scollview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_comm_title"
+            android:layout_marginBottom="50dip" >
+
+            <LinearLayout
+                android:id="@+id/main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/tv_comm_title"
+                android:orientation="vertical" >
+
+                <include layout="@layout/warn_info_layout" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_padding10"
+                    android:layout_marginRight="@dimen/margin_padding10"
+                    android:layout_marginTop="@dimen/margin_padding10"
+                    android:background="@drawable/publish_item_background"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="@dimen/margin_padding15"
+                        android:gravity="center_vertical"
+                        android:text="有效性"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textSize15" />
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_padding10"
+                        android:layout_weight="1" >
+
+                        <LinearLayout
+                            android:id="@+id/ll_is_ok"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/publish_click_selector"
+                            android:orientation="horizontal" >
+
+                            <View style="@style/full_ver_line_seperatorbyfublish" />
+
+                            <TextView
+                                android:id="@+id/tv_is_ok"
+                                android:layout_width="0dp"
+                                android:layout_height="fill_parent"
+                                android:layout_marginLeft="@dimen/margin_padding5"
+                                android:layout_weight="1"
+                                android:background="@null"
+                                android:gravity="center_vertical"
+                                android:hint="选择有效性"
+                                android:textColor="@color/color333333"
+                                android:textColorHint="#cccccc"
+                                android:textSize="@dimen/textSize15" />
+
+                            <ImageView
+                                android:id="@+id/iv_is_ok"
+                                android:layout_width="@dimen/margin_padding10"
+                                android:layout_height="@dimen/margin_padding10"
+                                android:layout_gravity="bottom|right"
+                                android:layout_marginBottom="@dimen/margin_padding10"
+                                android:layout_marginRight="@dimen/margin_padding10"
+                                android:background="@drawable/icon_pull" />
+                        </LinearLayout>
+                    </FrameLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_padding10"
+                    android:layout_marginRight="@dimen/margin_padding10"
+                    android:background="@drawable/publish_item_background"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="@dimen/margin_padding15"
+                        android:gravity="center_vertical"
+                        android:text="是否出警"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textSize15" />
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_padding10"
+                        android:layout_weight="1" >
+
+                        <LinearLayout
+                            android:id="@+id/ll_is_do"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/publish_click_selector"
+                            android:orientation="horizontal" >
+
+                            <View style="@style/full_ver_line_seperatorbyfublish" />
+
+                            <TextView
+                                android:id="@+id/tv_is_do"
+                                android:layout_width="0dp"
+                                android:layout_height="fill_parent"
+                                android:layout_marginLeft="@dimen/margin_padding5"
+                                android:layout_weight="1"
+                                android:background="@null"
+                                android:gravity="center_vertical"
+                                android:hint="选择是否出警"
+                                android:textColor="@color/color333333"
+                                android:textColorHint="#cccccc"
+                                android:textSize="@dimen/textSize15" />
+
+                            <ImageView
+                                android:id="@+id/iv_is_do"
+                                android:layout_width="@dimen/margin_padding10"
+                                android:layout_height="@dimen/margin_padding10"
+                                android:layout_gravity="bottom|right"
+                                android:layout_marginBottom="@dimen/margin_padding10"
+                                android:layout_marginRight="@dimen/margin_padding10"
+                                android:background="@drawable/icon_pull" />
+                        </LinearLayout>
+                    </FrameLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="4px"
+                    android:layout_marginLeft="@dimen/margin_padding10"
+                    android:layout_marginRight="@dimen/margin_padding10"
+                    android:background="#d1d1d1" />
+            </LinearLayout>
+        </com.xiangxun.widget.MyScrollView>
+
+        <LinearLayout
+            android:id="@+id/ll_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/margin_padding5"
+            android:layout_marginTop="@dimen/margin_padding20"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/margin_padding20" >
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="0dip"
+                android:layout_height="40dp"
+                android:layout_marginLeft="@dimen/margin_padding10"
+                android:layout_marginRight="@dimen/margin_padding10"
+                android:layout_weight="1"
+                android:background="@drawable/btn_blue_selctor"
+                android:text="@string/syscfgcanel"
+                android:textColor="@drawable/textcolor_selector"
+                android:textSize="@dimen/textSize16" >
+            </Button>
+
+            <Button
+                android:id="@+id/btn_sign"
+                android:layout_width="0dip"
+                android:layout_height="40dp"
+                android:layout_marginLeft="@dimen/margin_padding10"
+                android:layout_marginRight="@dimen/margin_padding10"
+                android:layout_weight="1"
+                android:background="@drawable/btn_blue_selctor"
+                android:text="@string/sign"
+                android:textColor="@drawable/textcolor_selector"
+                android:textSize="@dimen/textSize16" >
+            </Button>
+        </LinearLayout>
+        <!-- 浮层半透明 -->
+    </RelativeLayout>
+
+</merge>

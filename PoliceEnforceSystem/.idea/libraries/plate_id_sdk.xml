@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="plate_id_sdk">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/plate_id_sdk.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
