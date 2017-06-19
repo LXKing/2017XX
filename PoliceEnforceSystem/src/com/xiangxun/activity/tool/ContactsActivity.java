@@ -134,7 +134,7 @@ public class ContactsActivity extends BaseActivity implements OnClickListener, I
                     mPhones.add(ab.phone);
                 }
 //                不知道那个字段是Linphone的电话，先用868299021323554代替。
-                mPhones.add("网络电话#" + "868299021323554" + "#" + ab.name);
+                mPhones.add("网络电话#" + "351662010206813" + "#" + ab.name);
                 CustomCallDialog callDialog = new CustomCallDialog(ContactsActivity.this, mPhones, false, ContactsActivity.this);
                 callDialog.setCanceledOnTouchOutside(true);
                 callDialog.show();

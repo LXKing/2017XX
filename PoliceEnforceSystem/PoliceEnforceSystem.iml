@@ -117,5 +117,6 @@
     <orderEntry type="library" exported="" name="wmqtt" level="project" />
     <orderEntry type="library" exported="" name="bcprov-ext-jdk15-146" level="project" />
     <orderEntry type="library" exported="" name="jxl" level="project" />
+    <orderEntry type="module" module-name="VideoLib" exported="" />
   </component>
 </module>

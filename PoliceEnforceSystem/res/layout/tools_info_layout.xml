@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/frabg"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <com.xiangxun.widget.TitleView
         android:id="@+id/tv_comm_title"
@@ -16,7 +16,7 @@
 
     <RelativeLayout
         android:id="@+id/rl_data_dictionary"
-        style="@style/more_relativelayout" >
+        style="@style/more_relativelayout">
 
         <TextView style="@style/more_arrows" />
 
@@ -44,7 +44,7 @@
 
     <RelativeLayout
         android:id="@+id/rl_contacts"
-        style="@style/more_relativelayout" >
+        style="@style/more_relativelayout">
 
         <TextView style="@style/more_arrows" />
 
@@ -64,6 +64,36 @@
             style="@style/more_text"
             android:layout_toRightOf="@id/dvimage02"
             android:text="@string/tongxunlu" />
+    </RelativeLayout>
+
+    <View style="@style/full_line_seperator" />
+
+    <View
+        style="@style/full_line_seperator"
+        android:layout_marginLeft="@dimen/margin_padding15" />
+
+    <RelativeLayout
+        android:id="@+id/rl_video"
+        style="@style/more_relativelayout">
+
+        <TextView style="@style/more_arrows" />
+
+        <ImageView
+            android:id="@+id/dvivideo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/icon_video"
+            android:paddingBottom="13dip"
+            android:paddingLeft="8dip"
+            android:paddingRight="8dip"
+            android:paddingTop="13dip" />
+
+        <TextView
+            style="@style/more_text"
+            android:layout_toRightOf="@id/dvivideo"
+            android:text="录像模块" />
     </RelativeLayout>
 
     <View style="@style/full_line_seperator" />

@@ -64,7 +64,6 @@
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
     <!-- Needed to pre fill the wizard email field (only if enabled in custom settings) -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-
     <supports-screens
         android:anyDensity="true"
         android:largeScreens="true"
@@ -169,6 +168,10 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.xiangxun.activity.tool.ContactsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.xiangxun.activity.tool.VideoRecordActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
