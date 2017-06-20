@@ -53,8 +53,7 @@ public class SettingActivity extends BaseFragmentActivity implements android.vie
 	private PublishSelectLawDialog workRoadDialog;
 	private MsgDialog msgDialog;
 	/** 更新版本提示框 */
-	private UpdateDialog updateDialog;// 更新版本提示框
-
+	private UpdateDialog updateDialog;// 更新版本提示框
 	private int deleteDay = 0;
 	@SuppressLint("HandlerLeak")
 	Handler handler = new Handler() {
@@ -211,9 +210,8 @@ public class SettingActivity extends BaseFragmentActivity implements android.vie
 				DBManager.getInstance().clearAccidentData();
 				DBManager.getInstance().clearLawCheckData();
 				DBManager.getInstance().clearWarnData();
-				//删除所有图片
-
-				File pictures = new File(Environment.getExternalStorageDirectory() +  "/xiangxun/vio");
+				//删除所有图片
+				File pictures = new File(Environment.getExternalStorageDirectory() + "/xiangxun/vio");
 				MyUtils.deleteFile(pictures);
 				File picturesbackup = new File(Environment.getExternalStorageDirectory() + "/xiangxun/vioback");
 				MyUtils.deleteFile(picturesbackup);

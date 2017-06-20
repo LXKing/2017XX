@@ -511,7 +511,6 @@ public class MainTabActivity extends TabActivity implements OnTabChangeListener,
 
 	public void startVideoActivity(LinphoneCall currentCall) {
 		Intent intent = new Intent(this, InCallActivity.class);
-		intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 		intent.putExtra("VideoEnabled", true);
 		startOrientationSensor();
 		startActivityForResult(intent, CALL_ACTIVITY);
@@ -519,7 +518,6 @@ public class MainTabActivity extends TabActivity implements OnTabChangeListener,
 
 	public void startIncallActivity(LinphoneCall currentCall) {
 		Intent intent = new Intent(this, InCallActivity.class);
-		intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 		intent.putExtra("VideoEnabled", false);
 		startOrientationSensor();
 		startActivityForResult(intent, CALL_ACTIVITY);

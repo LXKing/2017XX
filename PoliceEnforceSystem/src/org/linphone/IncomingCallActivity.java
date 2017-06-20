@@ -16,7 +16,7 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
-	package org.linphone;
+package org.linphone;
 
 import java.util.List;
 
@@ -118,11 +118,11 @@ public class IncomingCallActivity extends Activity implements LinphoneCallStateL
 		LinphoneUtils.setImagePictureFromUri(this, mPictureView.getView(), uri, R.drawable.unknown_small);
 
 		// To be done after findUriPictureOfContactAndSetDisplayName called
-		mNumberView.setText(address.getDisplayName());
+		mNameView.setText(address.getDisplayName());
 		if (getResources().getBoolean(R.bool.only_display_username_if_unknown)) {
-			mNameView.setText(address.getUserName());
+			mNumberView.setText(address.getUserName());
 		} else {
-			mNameView.setText(address.asStringUriOnly());
+			mNumberView.setText(address.asStringUriOnly());
 		}
 	}
 	

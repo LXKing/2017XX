@@ -18,11 +18,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.xiangxun.activity.R;
-import com.xiangxun.activity.point.ActiveCalling;
-
-import org.linphone.LinphoneManager;
-import org.linphone.core.LinphoneCore;
-import org.linphone.core.LinphoneProxyConfig;
 
 /**
  * @package: com.xiangxun.widget
@@ -32,145 +27,125 @@ import org.linphone.core.LinphoneProxyConfig;
  * @date: 2015-8-27 上午9:42:43
  */
 public class CustomCallDialog extends Dialog {
+	private static Context mContext = null;
+	private View mCustomView = null;
+	private ListView mLvContactPhone = null;
+	private List<String> mContactPhones = null;
+	private static CustomCallDialog mCustomCallDialog;
+	private String mSelectedPhone = null;
+	private boolean isAddIntention = false;
+	private PhoneNumberAdapter phoneNumberAdapter;
 
-    public interface OnSelectBack {
-        void selectBack(String mSelectedPhone);
-    }
+	public CustomCallDialog(Context context, List<String> contactPhones, boolean isAddIntention) {
+		super(context, R.style.CustomCallDialog);
+		CustomCallDialog.mContext = context;
+		this.mContactPhones = contactPhones;
+		this.isAddIntention = isAddIntention;
+	}
 
+	public static CustomCallDialog getCustomCallDialog(Context context, List<String> contactPhones, boolean isAddIntention) {
+		if (mCustomCallDialog == null || mContext != context) {
+			mCustomCallDialog = new CustomCallDialog(context, contactPhones, isAddIntention);
+		}
+		return mCustomCallDialog;
+	}
 
-    private static Context mContext = null;
-    private View mCustomView = null;
-    private ListView mLvContactPhone = null;
-    private List<String> mContactPhones = null;
-    private static CustomCallDialog mCustomCallDialog;
-    private String mSelectedPhone = null;
-    private boolean isAddIntention = false;
-    private PhoneNumberAdapter phoneNumberAdapter;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		LayoutInflater inflater = LayoutInflater.from(mContext);
+		mCustomView = inflater.inflate(R.layout.custom_call_dialog, null);
+		setContentView(mCustomView);
+		initView();
+	}
 
-    private OnSelectBack back;
+	private void initView() {
+		mLvContactPhone = (ListView) mCustomView.findViewById(R.id.lv_contact_phone);
+		phoneNumberAdapter = new PhoneNumberAdapter(mContext, mContactPhones);
+		mLvContactPhone.setAdapter(phoneNumberAdapter);
+		mLvContactPhone.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> view, View currentView, int position, long id) {
+				mSelectedPhone = mContactPhones.get(position).trim();
+				// 不是添加意向是详情时直接打电话
+				if (!isAddIntention) {
+					Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + mSelectedPhone));
+					mContext.startActivity(intent);
+				}
+				dismiss();
+			}
+		});
+	}
 
-    public CustomCallDialog(Context context, List<String> contactPhones, boolean isAddIntention, OnSelectBack back) {
-        super(context, R.style.CustomCallDialog);
-        CustomCallDialog.mContext = context;
-        this.mContactPhones = contactPhones;
-        this.isAddIntention = isAddIntention;
-        this.back = back;
-    }
+	@Override
+	public void show() {
+		if (mContext == null || ((Activity) mContext).isFinishing()) {
+			mCustomCallDialog = null;
+			return;
+		}
+		if (phoneNumberAdapter != null) {
+			initView();
+		}
+		super.show();
+	}
 
-    public static CustomCallDialog getCustomCallDialog(Context context, List<String> contactPhones, boolean isAddIntention, OnSelectBack back) {
-        if (mCustomCallDialog == null || mContext != context) {
-            mCustomCallDialog = new CustomCallDialog(context, contactPhones, isAddIntention, back);
-        }
-        return mCustomCallDialog;
-    }
+	public String getSelectedPhone() {
+		return mSelectedPhone;
+	}
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        LayoutInflater inflater = LayoutInflater.from(mContext);
-        mCustomView = inflater.inflate(R.layout.custom_call_dialog, null);
-        setContentView(mCustomView);
-        initView();
-    }
+	public class PhoneNumberAdapter extends BaseAdapter {
+		private List<String> mPhoneNumbers = null;
+		private LayoutInflater mInflater = null;
 
-    private void initView() {
-        mLvContactPhone = (ListView) mCustomView.findViewById(R.id.lv_contact_phone);
-        phoneNumberAdapter = new PhoneNumberAdapter(mContext, mContactPhones);
-        mLvContactPhone.setAdapter(phoneNumberAdapter);
-        mLvContactPhone.setOnItemClickListener(new OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> view, View currentView, int position, long id) {
-                mSelectedPhone = mContactPhones.get(position).trim();
-                // 不是添加意向是详情时直接打电话
+		public PhoneNumberAdapter(Context context, List<String> phoneNumbers) {
+			mInflater = LayoutInflater.from(context);
+			this.mPhoneNumbers = phoneNumbers;
+		}
 
+		@Override
+		public int getCount() {
+			return mPhoneNumbers.size();
+		}
 
-                if (!isAddIntention) {
-                    if (mSelectedPhone.contains("#")) {
-                        back.selectBack(mSelectedPhone);
-                    } else {
-                        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + mSelectedPhone));
-                        mContext.startActivity(intent);
-                    }
-                }
-                dismiss();
-            }
-        });
-    }
+		@Override
+		public Object getItem(int position) {
+			return position;
+		}
 
-    @Override
-    public void show() {
-        if (mContext == null || ((Activity) mContext).isFinishing()) {
-            mCustomCallDialog = null;
-            return;
-        }
-        if (phoneNumberAdapter != null) {
-            initView();
-        }
-        super.show();
-    }
+		@Override
+		public long getItemId(int position) {
+			return position;
+		}
 
-    public String getSelectedPhone() {
-        return mSelectedPhone;
-    }
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			ViewHolder holder = null;
+			if (convertView == null) {
+				convertView = mInflater.inflate(R.layout.custom_call_dialog_item, null);
+				holder = new ViewHolder();
+				holder.mTvPhoneNumber = (TextView) convertView.findViewById(R.id.tv_phone_number);
+				convertView.setTag(holder);
+			} else {
+				holder = (ViewHolder) convertView.getTag();
+			}
 
-    public class PhoneNumberAdapter extends BaseAdapter {
-        private List<String> mPhoneNumbers = null;
-        private LayoutInflater mInflater = null;
+			if (position == getCount() - 1) {
+				convertView.setBackgroundResource(R.drawable.phone_message_last_selector);
+			} else {
+				convertView.setBackgroundResource(R.drawable.phone_message_selector);
+			}
 
-        public PhoneNumberAdapter(Context context, List<String> phoneNumbers) {
-            mInflater = LayoutInflater.from(context);
-            this.mPhoneNumbers = phoneNumbers;
-        }
+			holder.mTvPhoneNumber.setText(mPhoneNumbers.get(position));
+			return convertView;
+		}
 
-        @Override
-        public int getCount() {
-            return mPhoneNumbers.size();
-        }
+		private class ViewHolder {
+			private TextView mTvPhoneNumber = null;
+		}
+	}
 
-        @Override
-        public Object getItem(int position) {
-            return position;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            ViewHolder holder = null;
-            if (convertView == null) {
-                convertView = mInflater.inflate(R.layout.custom_call_dialog_item, null);
-                holder = new ViewHolder();
-                holder.mTvPhoneNumber = (TextView) convertView.findViewById(R.id.tv_phone_number);
-                convertView.setTag(holder);
-            } else {
-                holder = (ViewHolder) convertView.getTag();
-            }
-
-            if (position == getCount() - 1) {
-                convertView.setBackgroundResource(R.drawable.phone_message_last_selector);
-            } else {
-                convertView.setBackgroundResource(R.drawable.phone_message_selector);
-            }
-
-            if (mPhoneNumbers.get(position).contains("#")) {
-                String aig = mPhoneNumbers.get(position).split("#")[0] + mPhoneNumbers.get(position).split("#")[1];
-                holder.mTvPhoneNumber.setText(aig);
-            } else {
-                holder.mTvPhoneNumber.setText(mPhoneNumbers.get(position));
-            }
-            return convertView;
-        }
-
-        private class ViewHolder {
-            private TextView mTvPhoneNumber = null;
-        }
-    }
-
-    public void setPhones(List<String> contactPhones) {
-        this.mContactPhones = contactPhones;
-    }
+	public void setPhones(List<String> contactPhones) {
+		this.mContactPhones = contactPhones;
+	}
 
 }

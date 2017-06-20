@@ -10,7 +10,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.hardware.Camera;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
@@ -25,182 +24,167 @@ import com.xiangxun.request.Api;
 import com.xiangxun.service.MQTTService;
 import com.xiangxun.service.MainService;
 import com.xiangxun.util.Logger;
-import com.xiangxun.video.camera.VCamera;
 
-import java.io.File;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class XiangXunApplication extends Application {
-    private MainService mService;
-    private BluetoothPrintDriver mStdPrint;
-    private Camera mCamera;
-    private static final String lOCALE_CHANGED = Intent.ACTION_LOCALE_CHANGED;
+	private MainService mService;
+	private BluetoothPrintDriver mStdPrint;
+	private Camera mCamera;
+	private static final String lOCALE_CHANGED = Intent.ACTION_LOCALE_CHANGED;
 
-    private String VideoServerIp;
-    private int VideoServerPort;
-    @SuppressLint("HandlerLeak")
-    private Handler mHandler = new Handler() {
+	private String VideoServerIp;
+	private int VideoServerPort;
+	@SuppressLint("HandlerLeak")
+	private Handler mHandler = new Handler() {
 
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-        }
+		@Override
+		public void handleMessage(Message msg) {
+			super.handleMessage(msg);
+		}
 
-    };
-    private static XiangXunApplication sApplication;
-    private String mDevId;
-    private ExecutorService mThreadPool;
-    private Logger mLogger;
-    private static Gson gson;
+	};
+	private static XiangXunApplication sApplication;
+	private String mDevId;
+	private ExecutorService mThreadPool;
+	private Logger mLogger;
+	private static Gson gson;
 
-    @Override
-    public void onCreate() {
-        sApplication = this;
-        super.onCreate();
+	@Override
+	public void onCreate() {
+		sApplication = this;
+		super.onCreate();
 
-        Intent sintent = new Intent(this, MainService.class);
-        bindService(sintent, conn, Service.BIND_AUTO_CREATE);
-        registerReceiver(mReceiver, new IntentFilter(lOCALE_CHANGED));
-        // 网络对象初始化
-        DcHttpClient.getInstance().init(getBaseContext());
-        // 日志记录
-        mLogger = Logger.getLogger("xiangxun");
-        Logger.tag = "XIANGXUN";
-        mLogger.initLogWriter(Api.xXDir.concat("logs/outDebug.log"));
-        mLogger.initExceptionHandler(this);
-        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()//
-                .detectCustomSlowCalls()//
-                .detectDiskReads()//
-                .detectDiskWrites()//
-                .detectNetwork()//
-                .penaltyLog()//
-                .penaltyFlashScreen()//
-                .build());
-        try {
-            StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()//
-                    .detectLeakedClosableObjects()//
-                    .detectLeakedSqlLiteObjects()//
-                    .setClassInstanceLimit(Class.forName("com.apress.proandroid.SomeClass"), 100)//
-                    .penaltyLog()//
-                    .build());
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        //初始化视频录制功能参数。
-        File boot = new File(Environment.getExternalStorageDirectory() + "/xiangxun/video/");
-        if (!boot.exists()) {
-            boot.mkdir();
-        }
-        VCamera.setVideoCachePath(boot + "/recoder/");
-        //  VCamera.setVideoCachePath(FileUtils.getRecorderPath());
-        // 开启log输出,ffmpeg输出到logcat
-        VCamera.setDebugMode(false);
-        // 初始化拍摄SDK，必须
-        VCamera.initialize(this);
-    }
+		Intent sintent = new Intent(this, MainService.class);
+		bindService(sintent, conn, Service.BIND_AUTO_CREATE);
+		registerReceiver(mReceiver, new IntentFilter(lOCALE_CHANGED));
+		// 网络对象初始化
+		DcHttpClient.getInstance().init(getBaseContext());
+		// 日志记录
+		mLogger = Logger.getLogger("xiangxun");
+		Logger.tag = "XIANGXUN";
+		mLogger.initLogWriter(Api.xXDir.concat("logs/outDebug.log"));
+		mLogger.initExceptionHandler(this);
+		StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()//
+				.detectCustomSlowCalls()//
+				.detectDiskReads()//
+				.detectDiskWrites()//
+				.detectNetwork()//
+				.penaltyLog()//
+				.penaltyFlashScreen()//
+				.build());
+		try {
+			StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()//
+					.detectLeakedClosableObjects()//
+					.detectLeakedSqlLiteObjects()//
+					.setClassInstanceLimit(Class.forName("com.apress.proandroid.SomeClass"), 100)//
+					.penaltyLog()//
+					.build());
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
 
-    public static XiangXunApplication getInstance() {
-        return sApplication;
-    }
+	public static XiangXunApplication getInstance() {
+		return sApplication;
+	}
 
-    private ServiceConnection conn = new ServiceConnection() {
+	private ServiceConnection conn = new ServiceConnection() {
 
-        @Override
-        public void onServiceDisconnected(ComponentName name) {
-            mService = null;
-        }
+		@Override
+		public void onServiceDisconnected(ComponentName name) {
+			mService = null;
+		}
 
-        @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            mService = ((MainService.mService) service).getService();
-        }
-    };
+		@Override
+		public void onServiceConnected(ComponentName name, IBinder service) {
+			mService = ((MainService.mService) service).getService();
+		}
+	};
 
-    public MainService getMainService() {
-        if (mService != null) {
-            return mService;
-        }
-        throw new RuntimeException("MainService should be created before accessed");
-    }
+	public MainService getMainService() {
+		if(mService != null){
+			return mService;
+		}
+		throw new RuntimeException("MainService should be created before accessed");
+	}
 
-    public BluetoothPrintDriver getStdPrint(Handler handler) {
-        if (mStdPrint == null) {
-            mStdPrint = new BluetoothPrintDriver(this, handler);
-        }
-        return mStdPrint;
-    }
+	public BluetoothPrintDriver getStdPrint(Handler handler) {
+		if (mStdPrint == null) {
+			mStdPrint = new BluetoothPrintDriver(this, handler);
+		}
+		return mStdPrint;
+	}
 
-    public Camera getCamera() {
-        return mCamera;
-    }
+	public Camera getCamera() {
+		return mCamera;
+	}
 
-    public void setCamera(Camera camera) {
-        mCamera = camera;
-    }
+	public void setCamera(Camera camera) {
+		mCamera = camera;
+	}
 
-    public void setVideoServer(String serverIp, int serverPort) {
-        VideoServerIp = serverIp;
-        VideoServerPort = serverPort;
-    }
+	public void setVideoServer(String serverIp, int serverPort) {
+		VideoServerIp = serverIp;
+		VideoServerPort = serverPort;
+	}
 
-    public String getVideoServerIp() {
-        return VideoServerIp;
-    }
+	public String getVideoServerIp() {
+		return VideoServerIp;
+	}
 
-    public int getVideoServerPort() {
-        return VideoServerPort;
-    }
+	public int getVideoServerPort() {
+		return VideoServerPort;
+	}
 
-    public String getUserName() {
-        return SystemCfg.getPoliceName(getInstance());
-    }
+	public String getUserName() {
+		return SystemCfg.getPoliceName(getInstance());
+	}
 
-    public String getUserId() {
-        return SystemCfg.getUserId(getInstance());
-    }
+	public String getUserId() {
+		return SystemCfg.getUserId(getInstance());
+	}
 
 
-    public String getDevId() {
-        if (mDevId == null) {
-            TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-            mDevId = tm.getDeviceId();
-        }
-        return mDevId;
-    }
+	public String getDevId() {
+		if (mDevId == null) {
+			TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+			mDevId = tm.getDeviceId();
+		}
+		return mDevId;
+	}
 
-    public ExecutorService getThreadPool() {
+	public ExecutorService getThreadPool() {
 
-        if (mThreadPool == null) {
-            mThreadPool = Executors.newSingleThreadExecutor();
-        }
-        return mThreadPool;
-    }
+		if (mThreadPool == null) {
+			mThreadPool = Executors.newSingleThreadExecutor();
+		}
+		return mThreadPool;
+	}
+	
+	public void startPushService() {
+		MQTTService.actionStart(getInstance());
+	}
 
-    public void startPushService() {
-        MQTTService.actionStart(getInstance());
-    }
-
-    public void stopPushService() {
-        MQTTService.actionStop(getInstance());
-    }
+	public void stopPushService() {
+		MQTTService.actionStop(getInstance());
+	}
 
 
-    private BroadcastReceiver mReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(lOCALE_CHANGED)) {
-                // Permissions.reInitPermissions(getInstance());
-            }
-        }
-    };
+	private BroadcastReceiver mReceiver = new BroadcastReceiver() {
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			if (intent.getAction().equals(lOCALE_CHANGED)) {
+				// Permissions.reInitPermissions(getInstance());
+			}
+		}
+	};
 
-    public static Gson getGson() {
-        if (gson == null) {
-            gson = new Gson();
-        }
-        return gson;
-    }
-
-    ;
+	public static Gson getGson() {
+		if (gson == null) {
+			gson = new Gson();
+		}
+		return gson;
+	};
 }

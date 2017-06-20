@@ -572,26 +572,23 @@ public class SettingsFragment extends PreferencesListFragment implements Linphon
 			codecs.addPreference(codec);
 		}
 
-		// 视频选项进行隐藏，用户呼出时，进行选择。然后修改参数。视频参数是绝对可以进行修改。无论在那种情况下
-		((CheckBoxPreference) findPreference(getString(R.string.pref_video_enable_key))).setChecked(true);
+		((CheckBoxPreference) findPreference(getString(R.string.pref_video_enable_key))).setChecked(mPrefs.isVideoEnabled());
 		((CheckBoxPreference) findPreference(getString(R.string.pref_video_use_front_camera_key))).setChecked(mPrefs.useFrontCam());
-		// ((CheckBoxPreference)
-		// findPreference(getString(R.string.pref_video_initiate_call_with_video_key))).setChecked(mPrefs.shouldInitiateVideoCall());
+		((CheckBoxPreference) findPreference(getString(R.string.pref_video_initiate_call_with_video_key))).setChecked(mPrefs.shouldInitiateVideoCall());
 		// ((CheckBoxPreference)
 		// findPreference(getString(R.string.pref_video_automatically_share_my_video_key))).setChecked(mPrefs.shouldAutomaticallyShareMyVideo());
-		// ((CheckBoxPreference)
-		// findPreference(getString(R.string.pref_video_automatically_accept_video_key))).setChecked(mPrefs.shouldAutomaticallyAcceptVideoRequests());
+		((CheckBoxPreference) findPreference(getString(R.string.pref_video_automatically_accept_video_key))).setChecked(mPrefs.shouldAutomaticallyAcceptVideoRequests());
 	}
 
 	private void setVideoPreferencesListener() {
-//		findPreference(getString(R.string.pref_video_enable_key)).setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
-//			@Override
-//			public boolean onPreferenceChange(Preference preference, Object newValue) {
-//				boolean enable = (Boolean) newValue;
-//				mPrefs.enableVideo(enable);
-//				return true;
-//			}
-//		});
+		findPreference(getString(R.string.pref_video_enable_key)).setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+			@Override
+			public boolean onPreferenceChange(Preference preference, Object newValue) {
+				boolean enable = (Boolean) newValue;
+				mPrefs.enableVideo(enable);
+				return true;
+			}
+		});
 
 		findPreference(getString(R.string.pref_video_use_front_camera_key)).setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
 			@Override
@@ -602,14 +599,14 @@ public class SettingsFragment extends PreferencesListFragment implements Linphon
 			}
 		});
 
-//		findPreference(getString(R.string.pref_video_initiate_call_with_video_key)).setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
-//			@Override
-//			public boolean onPreferenceChange(Preference preference, Object newValue) {
-//				boolean enable = (Boolean) newValue;
-//				mPrefs.setInitiateVideoCall(enable);
-//				return true;
-//			}
-//		});
+		findPreference(getString(R.string.pref_video_initiate_call_with_video_key)).setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+			@Override
+			public boolean onPreferenceChange(Preference preference, Object newValue) {
+				boolean enable = (Boolean) newValue;
+				mPrefs.setInitiateVideoCall(enable);
+				return true;
+			}
+		});
 
 		/*
 		 * findPreference(getString(R.string.
@@ -621,14 +618,14 @@ public class SettingsFragment extends PreferencesListFragment implements Linphon
 		 * mPrefs.setAutomaticallyShareMyVideo(enable); return true; } });
 		 */
 
-//		findPreference(getString(R.string.pref_video_automatically_accept_video_key)).setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
-//			@Override
-//			public boolean onPreferenceChange(Preference preference, Object newValue) {
-//				boolean enable = (Boolean) newValue;
-//				mPrefs.setAutomaticallyAcceptVideoRequests(enable);
-//				return true;
-//			}
-//		});
+		findPreference(getString(R.string.pref_video_automatically_accept_video_key)).setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+			@Override
+			public boolean onPreferenceChange(Preference preference, Object newValue) {
+				boolean enable = (Boolean) newValue;
+				mPrefs.setAutomaticallyAcceptVideoRequests(enable);
+				return true;
+			}
+		});
 
 		findPreference(getString(R.string.pref_preferred_video_size_key)).setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
 			@Override

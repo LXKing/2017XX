@@ -104,7 +104,6 @@ import android.widget.Toast;
 
 import com.xiangxun.activity.MainTabActivity;
 import com.xiangxun.activity.R;
-import com.xiangxun.widget.MsgToast;
 
 /**
  * 
@@ -859,7 +858,6 @@ public class LinphoneManager implements LinphoneListener {
 		}
 
 		if (state == State.CallReleased || state == State.Error) {
-			MsgToast.geToast().setMsg(R.string.loadError_net);
 			if (mLc.getCallsNb() == 0) {
 				if (mAudioFocused) {
 					int res = mAudioManager.abandonAudioFocus(null);

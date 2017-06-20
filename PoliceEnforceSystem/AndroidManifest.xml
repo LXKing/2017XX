@@ -3,7 +3,7 @@
     package="com.xiangxun.activity"
     android:installLocation="auto"
     android:versionCode="3"
-    android:versionName="3">
+    android:versionName="3" >
 
     <uses-sdk
         android:minSdkVersion="16"
@@ -32,7 +32,8 @@
 
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"></uses-permission>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" >
+    </uses-permission>
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
 
@@ -49,8 +50,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    Needed to allow Linphone to install on tablets, since android.permission.CALL_PHONE implies
-    android.hardware.telephony is required
+     Needed to allow Linphone to install on tablets, since android.permission.CALL_PHONE implies android.hardware.telephony is required
     <uses-feature
         android:name="android.hardware.telephony"
         android:required="false" />
@@ -64,6 +64,7 @@
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
     <!-- Needed to pre fill the wizard email field (only if enabled in custom settings) -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+
     <supports-screens
         android:anyDensity="true"
         android:largeScreens="true"
@@ -79,11 +80,11 @@
         android:label="@string/app_name"
         android:largeHeap="true"
         android:persistent="true"
-        android:theme="@style/custome_background">
+        android:theme="@style/custome_background" >
         <activity
             android:name="com.xiangxun.activity.Welcome"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.DeviceDefault.NoActionBar">
+            android:theme="@android:style/Theme.DeviceDefault.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -164,14 +165,7 @@
             android:name="com.xiangxun.activity.mine.DailyServiceListActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.xiangxun.activity.point.ActiveCalling"
-            android:screenOrientation="portrait" />
-        <activity
             android:name="com.xiangxun.activity.tool.ContactsActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
-        <activity
-            android:name="com.xiangxun.activity.tool.VideoRecordActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
@@ -205,7 +199,7 @@
             android:label="@string/get_vio_pic"
             android:launchMode="singleTop"
             android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.NoTitleBar">
+            android:theme="@android:style/Theme.NoTitleBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -232,14 +226,14 @@
         <activity
             android:name="com.xiangxun.activity.MainTabActivity"
             android:launchMode="singleInstance"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
         <activity
             android:name="com.wintone.plateid.PlateIDCfg"
-            android:configChanges="keyboardHidden|orientation">
+            android:configChanges="keyboardHidden|orientation" >
             <intent-filter>
                 <action android:name="wintone.plateidconfig" />
 
@@ -249,7 +243,7 @@
         <activity
             android:name="wintone.idcard.android.IDCardBean"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
             <intent-filter>
                 <action android:name="wintone.idcard" />
 
@@ -258,13 +252,15 @@
         </activity>
         <activity
             android:name="com.xiangxun.activity.setting.ResolutionFontSetActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"></activity>
+            android:configChanges="keyboardHidden|orientation|screenSize" >
+        </activity>
         <activity
             android:name="com.xiangxun.activity.home.HomeActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:launchMode="singleInstance"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" >
+        </activity>
         <activity android:name="com.xiangxun.activity.AuthVerificationActivity" />
         <activity
             android:name="com.xiangxun.activity.Daily.PublishDailyAffairsActivity"
@@ -337,17 +333,18 @@
 
         <service
             android:name="com.xiangxun.service.MQTTService"
-            android:enabled="true"></service>
+            android:enabled="true" >
+        </service>
         <service
             android:name="com.wintone.plateid.AuthService"
-            android:enabled="true">
+            android:enabled="true" >
             <intent-filter>
                 <action android:name="wintone.plateid.authservice" />
             </intent-filter>
         </service>
         <service
             android:name="com.wintone.plateid.RecogService"
-            android:enabled="true">
+            android:enabled="true" >
             <intent-filter>
                 <action android:name="wintone.plateid.recogService" />
             </intent-filter>
@@ -366,12 +363,12 @@
             android:name="TencentMapSDK"
             android:value="IRBBZ-ZLVKQ-Q3K52-G54OP-7CCQ5-KYFYE" />
 
-        LinPhone
+         LinPhone
         <activity
             android:name="org.linphone.IncomingCallActivity"
             android:launchMode="singleTop"
             android:noHistory="true"
-            android:screenOrientation="behind">
+            android:screenOrientation="behind" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
@@ -382,7 +379,7 @@
             android:launchMode="singleTop"
             android:noHistory="true"
             android:screenOrientation="sensor"
-            android:theme="@style/FullScreen">
+            android:theme="@style/FullScreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
@@ -397,14 +394,14 @@
         </activity>
         <activity
             android:name="org.linphone.setup.SetupActivity"
-            android:screenOrientation="nosensor">
+            android:screenOrientation="nosensor" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
         <activity
             android:name="org.linphone.setup.RemoteProvisioningLoginActivity"
-            android:screenOrientation="nosensor">
+            android:screenOrientation="nosensor" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
@@ -415,30 +412,34 @@
             android:label="@string/service_name"
             android:stopWithTask="false" />
 
-        <receiver android:name="org.linphone.NetworkManager">
+        <receiver android:name="org.linphone.NetworkManager" >
             <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"></action>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" >
+                </action>
             </intent-filter>
         </receiver>
         <receiver
             android:name="org.linphone.BluetoothManager"
-            android:enabled="false"></receiver>
-        <receiver android:name="org.linphone.BootReceiver">
+            android:enabled="false" >
+        </receiver>
+        <receiver android:name="org.linphone.BootReceiver" >
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+                <action android:name="android.intent.action.BOOT_COMPLETED" >
+                </action>
             </intent-filter>
         </receiver>
-        <receiver android:name="org.linphone.PhoneStateChangedReceiver">
+        <receiver android:name="org.linphone.PhoneStateChangedReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.PHONE_STATE" />
             </intent-filter>
         </receiver>
-        <receiver android:name="KeepAliveHandler"></receiver>
+        <receiver android:name="KeepAliveHandler" >
+        </receiver>
 
         <!-- Needed for push notification -->
         <receiver
             android:name="org.linphone.gcm.GCMReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND">
+            android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
@@ -450,27 +451,27 @@
 
         <service android:name="org.linphone.gcm.GCMService" />
 
-        <activity android:name="org.linphone.tutorials.TutorialLauncherActivity">
+        <activity android:name="org.linphone.tutorials.TutorialLauncherActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name="org.linphone.tutorials.TutorialBuddyStatusActivity">
+        <activity android:name="org.linphone.tutorials.TutorialBuddyStatusActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name="org.linphone.tutorials.TutorialChatRoomActivity">
+        <activity android:name="org.linphone.tutorials.TutorialChatRoomActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name="org.linphone.tutorials.TutorialHelloWorldActivity">
+        <activity android:name="org.linphone.tutorials.TutorialHelloWorldActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name="org.linphone.tutorials.TutorialRegistrationActivity">
+        <activity android:name="org.linphone.tutorials.TutorialRegistrationActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
@@ -478,32 +479,33 @@
 
         <service
             android:name="wintone.idcard.android.AuthService"
-            android:enabled="true">
+            android:enabled="true" >
             <intent-filter>
                 <action android:name="wintone.idcard.authService" />
             </intent-filter>
         </service>
         <service
             android:name="wintone.idcard.android.RecogService"
-            android:enabled="true">
+            android:enabled="true" >
             <intent-filter>
                 <action android:name="wintone.idcard.recogService" />
             </intent-filter>
         </service>
         <service
             android:name="wintone.idcard.android.TimeService"
-            android:enabled="true">
+            android:enabled="true" >
             <intent-filter>
                 <action android:name="wintone.idcard.TimeService" />
             </intent-filter>
         </service>
 
-        <receiver android:name="wintone.idcard.android.DataChangeReceiver"></receiver>
+        <receiver android:name="wintone.idcard.android.DataChangeReceiver" >
+        </receiver>
 
         <activity
             android:name="com.wintone.plateid.PlateIDBean"
             android:configChanges="keyboardHidden|orientation"
-            android:label="@string/app_name">
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="wintone.plateid" />
 
