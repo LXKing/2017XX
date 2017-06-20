@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.hardware.Camera;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
@@ -24,7 +25,9 @@ import com.xiangxun.request.Api;
 import com.xiangxun.service.MQTTService;
 import com.xiangxun.service.MainService;
 import com.xiangxun.util.Logger;
+import com.xiangxun.video.camera.VCamera;
 
+import java.io.File;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -84,6 +87,17 @@ public class XiangXunApplication extends Application {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
+		//初始化视频录制功能参数。
+		File boot = new File(Environment.getExternalStorageDirectory() + "/xiangxun/video/");
+		if (!boot.exists()) {
+			boot.mkdir();
+		}
+		VCamera.setVideoCachePath(boot + "/recoder/");
+		//  VCamera.setVideoCachePath(FileUtils.getRecorderPath());
+		// 开启log输出,ffmpeg输出到logcat
+		VCamera.setDebugMode(false);
+		// 初始化拍摄SDK，必须
+		VCamera.initialize(this);
 	}
 
 	public static XiangXunApplication getInstance() {

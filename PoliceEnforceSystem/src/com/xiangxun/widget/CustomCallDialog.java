@@ -18,6 +18,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.xiangxun.activity.R;
+import com.xiangxun.activity.point.ActiveCalling;
+
+import org.linphone.LinphoneManager;
+import org.linphone.core.LinphoneCore;
+import org.linphone.core.LinphoneProxyConfig;
 
 /**
  * @package: com.xiangxun.widget
@@ -27,6 +32,12 @@ import com.xiangxun.activity.R;
  * @date: 2015-8-27 上午9:42:43
  */
 public class CustomCallDialog extends Dialog {
+
+	public interface OnSelectBack {
+		void selectBack(String mSelectedPhone);
+	}
+
+
 	private static Context mContext = null;
 	private View mCustomView = null;
 	private ListView mLvContactPhone = null;
@@ -36,16 +47,19 @@ public class CustomCallDialog extends Dialog {
 	private boolean isAddIntention = false;
 	private PhoneNumberAdapter phoneNumberAdapter;
 
-	public CustomCallDialog(Context context, List<String> contactPhones, boolean isAddIntention) {
+	private OnSelectBack back;
+
+	public CustomCallDialog(Context context, List<String> contactPhones, boolean isAddIntention, OnSelectBack back) {
 		super(context, R.style.CustomCallDialog);
 		CustomCallDialog.mContext = context;
 		this.mContactPhones = contactPhones;
 		this.isAddIntention = isAddIntention;
+		this.back = back;
 	}
 
-	public static CustomCallDialog getCustomCallDialog(Context context, List<String> contactPhones, boolean isAddIntention) {
+	public static CustomCallDialog getCustomCallDialog(Context context, List<String> contactPhones, boolean isAddIntention, OnSelectBack back) {
 		if (mCustomCallDialog == null || mContext != context) {
-			mCustomCallDialog = new CustomCallDialog(context, contactPhones, isAddIntention);
+			mCustomCallDialog = new CustomCallDialog(context, contactPhones, isAddIntention, back);
 		}
 		return mCustomCallDialog;
 	}
@@ -68,9 +82,15 @@ public class CustomCallDialog extends Dialog {
 			public void onItemClick(AdapterView<?> view, View currentView, int position, long id) {
 				mSelectedPhone = mContactPhones.get(position).trim();
 				// 不是添加意向是详情时直接打电话
+
+
 				if (!isAddIntention) {
-					Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + mSelectedPhone));
-					mContext.startActivity(intent);
+					if (mSelectedPhone.contains("#")) {
+						back.selectBack(mSelectedPhone);
+					} else {
+						Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + mSelectedPhone));
+						mContext.startActivity(intent);
+					}
 				}
 				dismiss();
 			}
@@ -135,7 +155,12 @@ public class CustomCallDialog extends Dialog {
 				convertView.setBackgroundResource(R.drawable.phone_message_selector);
 			}
 
-			holder.mTvPhoneNumber.setText(mPhoneNumbers.get(position));
+			if (mPhoneNumbers.get(position).contains("#")) {
+				String aig = mPhoneNumbers.get(position).split("#")[0] + mPhoneNumbers.get(position).split("#")[1];
+				holder.mTvPhoneNumber.setText(aig);
+			} else {
+				holder.mTvPhoneNumber.setText(mPhoneNumbers.get(position));
+			}
 			return convertView;
 		}
 

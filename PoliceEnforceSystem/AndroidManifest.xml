@@ -169,6 +169,10 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
+            android:name="com.xiangxun.activity.tool.VideoRecordActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
             android:name="com.xiangxun.activity.mine.MyInformationActivity"
             android:screenOrientation="portrait" />
         <activity
