@@ -57,8 +57,10 @@ public final class ContactHelper {
 
 	public boolean query() {
 		boolean succeeded = queryContact();
-		if (succeeded && !TextUtils.isEmpty(displayName)) {
-			address.setDisplayName(displayName);
+		if (TextUtils.isEmpty(address.getDisplayName())) {
+			if (succeeded && !TextUtils.isEmpty(displayName)) {
+				address.setDisplayName(displayName);
+			}
 		}
 		return succeeded;
 	}

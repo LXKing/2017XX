@@ -687,7 +687,7 @@ public class InCallActivity extends FragmentActivity implements LinphoneCallStat
 						animation.setAnimationListener(new AnimationListener() {
 							@Override
 							public void onAnimationStart(Animation animation) {
-								video.setEnabled(false); 
+								video.setEnabled(false);
 							}
 
 							@Override
@@ -696,7 +696,7 @@ public class InCallActivity extends FragmentActivity implements LinphoneCallStat
 
 							@Override
 							public void onAnimationEnd(Animation animation) {
-								video.setEnabled(true); 
+								video.setEnabled(true);
 								transfer.setVisibility(View.INVISIBLE);
 								addCall.setVisibility(View.INVISIBLE);
 								mControlsLayout.setVisibility(View.GONE);
@@ -838,13 +838,13 @@ public class InCallActivity extends FragmentActivity implements LinphoneCallStat
 					transfer.setAnimation(null);
 					transfer.setVisibility(View.INVISIBLE);
 					animation = AnimationUtils.loadAnimation(InCallActivity.this, R.anim.slide_out_top_to_bottom); // Reload
-																													// animation
-																													// to
-																													// prevent
-																													// transfer
-																													// button
-																													// to
-																													// blink
+					// animation
+					// to
+					// prevent
+					// transfer
+					// button
+					// to
+					// blink
 					animation.setAnimationListener(new AnimationListener() {
 						@Override
 						public void onAnimationStart(Animation animation) {
@@ -1275,13 +1275,13 @@ public class InCallActivity extends FragmentActivity implements LinphoneCallStat
 
 	private void displayCall(Resources resources, LinphoneCall call, int index) {
 		String sipUri = call.getRemoteAddress().asStringUriOnly();
-		LinphoneAddress lAddress;
-		try {
-			lAddress = LinphoneCoreFactory.instance().createLinphoneAddress(sipUri);
-		} catch (LinphoneCoreException e) {
-			Log.e("Incall activity cannot parse remote address", e);
-			lAddress = LinphoneCoreFactory.instance().createLinphoneAddress("uknown", "unknown", "unkonown");
-		}
+		LinphoneAddress lAddress = call.getRemoteAddress();
+//		try {
+//			lAddress = LinphoneCoreFactory.instance().createLinphoneAddress(sipUri);
+//		} catch (LinphoneCoreException e) {
+//			Log.e("Incall activity cannot parse remote address", e);
+//			lAddress = LinphoneCoreFactory.instance().createLinphoneAddress("uknown", "unknown", "unkonown");
+//		}
 
 		// Control Row
 		LinearLayout callView = (LinearLayout) inflater.inflate(R.layout.active_call_control_row, container, false);

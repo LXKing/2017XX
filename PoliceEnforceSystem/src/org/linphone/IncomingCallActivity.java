@@ -51,30 +51,30 @@ import com.xiangxun.cfg.SystemCfg;
  */
 public class IncomingCallActivity extends Activity implements LinphoneCallStateListener, LinphoneSliderTriggered {
 
-	private static IncomingCallActivity instance;
-	
-	private TextView mNameView;
-	private TextView mNumberView;
-	private AvatarWithShadow mPictureView;
-	private LinphoneCall mCall;
-	private LinphoneSliders mIncomingCallWidget;
-	
-	public static IncomingCallActivity instance() {
-		return instance;
-	}
-	
-	public static boolean isInstanciated() {
-		return instance != null;
-	}
-	
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-		setContentView(R.layout.incoming);
+    private static IncomingCallActivity instance;
 
-		mNameView = (TextView) findViewById(R.id.incoming_caller_name);
-		mNumberView = (TextView) findViewById(R.id.incoming_caller_number);
-		mPictureView = (AvatarWithShadow) findViewById(R.id.incoming_picture);
+    private TextView mNameView;
+    private TextView mNumberView;
+    private AvatarWithShadow mPictureView;
+    private LinphoneCall mCall;
+    private LinphoneSliders mIncomingCallWidget;
+
+    public static IncomingCallActivity instance() {
+        return instance;
+    }
+
+    public static boolean isInstanciated() {
+        return instance != null;
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        setContentView(R.layout.incoming);
+
+        mNameView = (TextView) findViewById(R.id.incoming_caller_name);
+        mNumberView = (TextView) findViewById(R.id.incoming_caller_number);
+        mPictureView = (AvatarWithShadow) findViewById(R.id.incoming_picture);
 
         // set this flag so this activity will stay in front of the keyguard
         int flags = WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON;
@@ -85,124 +85,124 @@ public class IncomingCallActivity extends Activity implements LinphoneCallStateL
         mIncomingCallWidget.setOnTriggerListener(this);
 
         super.onCreate(savedInstanceState);
-		instance = this;
-	}
+        instance = this;
+    }
 
-	@Override
-	protected void onResume() {
-		super.onResume();
-		instance = this;
-		LinphoneCore lc = LinphoneManager.getLcIfManagerNotDestroyedOrNull();
-		if (lc != null) {
-			lc.addListener(this);
-		}
-		
-		// Only one call ringing at a time is allowed
-		if (LinphoneManager.getLcIfManagerNotDestroyedOrNull() != null) {
-			List<LinphoneCall> calls = LinphoneUtils.getLinphoneCalls(LinphoneManager.getLc());
-			for (LinphoneCall call : calls) {
-				if (State.IncomingReceived == call.getState()) {
-					mCall = call;
-					break;
-				}
-			}
-		}
-		if (mCall == null) {
-			Log.e("Couldn't find incoming call");
-			finish();
-			return;
-		}
-		LinphoneAddress address = mCall.getRemoteAddress();
-		// May be greatly sped up using a drawable cache
-		Uri uri = LinphoneUtils.findUriPictureOfContactAndSetDisplayName(address, getContentResolver());
-		LinphoneUtils.setImagePictureFromUri(this, mPictureView.getView(), uri, R.drawable.unknown_small);
+    @Override
+    protected void onResume() {
+        super.onResume();
+        instance = this;
+        LinphoneCore lc = LinphoneManager.getLcIfManagerNotDestroyedOrNull();
+        if (lc != null) {
+            lc.addListener(this);
+        }
 
-		// To be done after findUriPictureOfContactAndSetDisplayName called
-		mNameView.setText(address.getDisplayName());
-		if (getResources().getBoolean(R.bool.only_display_username_if_unknown)) {
-			mNumberView.setText(address.getUserName());
-		} else {
-			mNumberView.setText(address.asStringUriOnly());
-		}
-	}
-	
-	@Override
-	protected void onPause() {
-		LinphoneCore lc = LinphoneManager.getLcIfManagerNotDestroyedOrNull();
-		if (lc != null) {
-			lc.removeListener(this);
-		}
-		super.onPause();
-	}
-	
-	@Override
-	protected void onDestroy() {
-		super.onDestroy();
-		instance = null;
-	}
-	
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		if (LinphoneManager.isInstanciated() && (keyCode == KeyEvent.KEYCODE_BACK || keyCode == KeyEvent.KEYCODE_HOME)) {
-			LinphoneManager.getLc().terminateCall(mCall);
-			finish();
-		}
-		return super.onKeyDown(keyCode, event);
-	}
+        // Only one call ringing at a time is allowed
+        if (LinphoneManager.getLcIfManagerNotDestroyedOrNull() != null) {
+            List<LinphoneCall> calls = LinphoneUtils.getLinphoneCalls(LinphoneManager.getLc());
+            for (LinphoneCall call : calls) {
+                if (State.IncomingReceived == call.getState()) {
+                    mCall = call;
+                    break;
+                }
+            }
+        }
+        if (mCall == null) {
+            Log.e("Couldn't find incoming call");
+            finish();
+            return;
+        }
+        LinphoneAddress address = mCall.getRemoteAddress();
+        // May be greatly sped up using a drawable cache
+        Uri uri = LinphoneUtils.findUriPictureOfContactAndSetDisplayName(address, getContentResolver());
+        LinphoneUtils.setImagePictureFromUri(this, mPictureView.getView(), uri, R.drawable.unknown_small);
 
-	@Override
-	public void callState(LinphoneCore lc, LinphoneCall call, LinphoneCall.State state, String message) {
-		if (call == mCall && State.CallEnd == state) {
-			finish();
-			int linphoneStats = SystemCfg.getLinphoneStats(instance);
-			if(linphoneStats == 0 && MainTabActivity.isInstanciated()){
-				MainTabActivity.instance().exit();
-			}
-		}
-		if (state == State.StreamsRunning) {
-			// The following should not be needed except some devices need it (e.g. Galaxy S).
-			LinphoneManager.getLc().enableSpeaker(LinphoneManager.getLc().isSpeakerEnabled());
-		}
-	}
+        // To be done after findUriPictureOfContactAndSetDisplayName called
+        mNumberView.setText(address.getDisplayName());
+        if (getResources().getBoolean(R.bool.only_display_username_if_unknown)) {
+            mNameView.setText(address.getUserName());
+        } else {
+            mNameView.setText(address.asStringUriOnly());
+        }
+    }
 
-	private void decline() {
-		LinphoneManager.getLc().terminateCall(mCall);
-	}
-	
-	private void answer() {
-		LinphoneCallParams params = LinphoneManager.getLc().createDefaultCallParameters();
-		
-		boolean isLowBandwidthConnection = !LinphoneUtils.isHightBandwidthConnection(this);
-		if (isLowBandwidthConnection) {
-			params.enableLowBandwidth(true);
-			Log.d("Low bandwidth enabled in call params");
-		}
-		
-		if (!LinphoneManager.getInstance().acceptCallWithParams(mCall, params)) {
-			// the above method takes care of Samsung Galaxy S
-			Toast.makeText(this, R.string.couldnt_accept_call, Toast.LENGTH_LONG).show();
-		} else {
-			if (!MainTabActivity.isInstanciated()) {
-				return;
-			}
-			final LinphoneCallParams remoteParams = mCall.getRemoteParams();
-			if (remoteParams != null && remoteParams.getVideoEnabled() && LinphonePreferences.instance().shouldAutomaticallyAcceptVideoRequests()) {
-				MainTabActivity.instance().startVideoActivity(mCall);
-			} else {
-				MainTabActivity.instance().startIncallActivity(mCall);
-			}
-		}
-	}
+    @Override
+    protected void onPause() {
+        LinphoneCore lc = LinphoneManager.getLcIfManagerNotDestroyedOrNull();
+        if (lc != null) {
+            lc.removeListener(this);
+        }
+        super.onPause();
+    }
 
-	@Override
-	public void onLeftHandleTriggered() {
-		answer();
-		finish();
-	}
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        instance = null;
+    }
 
-	@Override
-	public void onRightHandleTriggered() {
-		decline();
-		finish();
-	}
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (LinphoneManager.isInstanciated() && (keyCode == KeyEvent.KEYCODE_BACK || keyCode == KeyEvent.KEYCODE_HOME)) {
+            LinphoneManager.getLc().terminateCall(mCall);
+            finish();
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public void callState(LinphoneCore lc, LinphoneCall call, LinphoneCall.State state, String message) {
+        if (call == mCall && State.CallEnd == state) {
+            finish();
+            int linphoneStats = SystemCfg.getLinphoneStats(instance);
+            if (linphoneStats == 0 && MainTabActivity.isInstanciated()) {
+                MainTabActivity.instance().exit();
+            }
+        }
+        if (state == State.StreamsRunning) {
+            // The following should not be needed except some devices need it (e.g. Galaxy S).
+            LinphoneManager.getLc().enableSpeaker(LinphoneManager.getLc().isSpeakerEnabled());
+        }
+    }
+
+    private void decline() {
+        LinphoneManager.getLc().terminateCall(mCall);
+    }
+
+    private void answer() {
+        LinphoneCallParams params = LinphoneManager.getLc().createDefaultCallParameters();
+
+        boolean isLowBandwidthConnection = !LinphoneUtils.isHightBandwidthConnection(this);
+        if (isLowBandwidthConnection) {
+            params.enableLowBandwidth(true);
+            Log.d("Low bandwidth enabled in call params");
+        }
+
+        if (!LinphoneManager.getInstance().acceptCallWithParams(mCall, params)) {
+            // the above method takes care of Samsung Galaxy S
+            Toast.makeText(this, R.string.couldnt_accept_call, Toast.LENGTH_LONG).show();
+        } else {
+            if (!MainTabActivity.isInstanciated()) {
+                return;
+            }
+            final LinphoneCallParams remoteParams = mCall.getRemoteParams();
+            if (remoteParams != null && remoteParams.getVideoEnabled() && LinphonePreferences.instance().shouldAutomaticallyAcceptVideoRequests()) {
+                MainTabActivity.instance().startVideoActivity(mCall);
+            } else {
+                MainTabActivity.instance().startIncallActivity(mCall);
+            }
+        }
+    }
+
+    @Override
+    public void onLeftHandleTriggered() {
+        answer();
+        finish();
+    }
+
+    @Override
+    public void onRightHandleTriggered() {
+        decline();
+        finish();
+    }
 }
