@@ -10,25 +10,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30d2a7ae-d123-4ae2-b648-691f1532ca08" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.4/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/3.4/javaCompile/classAnalysis.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.4/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/3.4/javaCompile/javaCompile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.4/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/3.4/javaCompile/taskHistory.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.4/taskHistory/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.4/taskHistory/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.4/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.4/taskHistory/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.4/taskHistory/jvmClassSignatures.bin" afterPath="$PROJECT_DIR$/.gradle/3.4/taskHistory/jvmClassSignatures.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.4/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/3.4/taskHistory/taskHistory.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.4/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/3.4/taskHistory/taskHistory.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout-320x240/video.xml" afterPath="$PROJECT_DIR$/res/layout-320x240/video.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout-land/video.xml" afterPath="$PROJECT_DIR$/res/layout-land/video.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout-small/video.xml" afterPath="$PROJECT_DIR$/res/layout-small/video.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout-sw533dp-land/video.xml" afterPath="$PROJECT_DIR$/res/layout-sw533dp-land/video.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout-sw720dp-land/video.xml" afterPath="$PROJECT_DIR$/res/layout-sw720dp-land/video.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/video.xml" afterPath="$PROJECT_DIR$/res/layout/video.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/xiangxun/activity/tool/ContactsActivity.java" afterPath="$PROJECT_DIR$/src/com/xiangxun/activity/tool/ContactsActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/linphone/VideoCallFragment.java" afterPath="$PROJECT_DIR$/src/org/linphone/VideoCallFragment.java" />
-    </list>
+    <list default="true" id="30d2a7ae-d123-4ae2-b648-691f1532ca08" name="Default" comment="" />
     <ignored path="PoliceEnforceSystem.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/build/classes/" />
@@ -59,7 +41,7 @@
       <file leaf-file-name="ContactsActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/xiangxun/activity/tool/ContactsActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.3372549">
+            <state vertical-scroll-proportion="2.0419161">
               <caret line="263" column="58" selection-start-line="263" selection-start-column="58" selection-end-line="263" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -2555,6 +2537,13 @@
       <option name="number" value="Default" />
       <updated>1497930044897</updated>
     </task>
+    <task id="LOCAL-00001" summary="最新版本下，修改完成，在通讯录中，点击网络通话后，根据不同状态判断不同走向，由于页面后退调用过多，进行解决。对LinphoneCore对象绑定的监听过多。产生多次后退现象。问题解决。">
+      <created>1497942696527</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1497942696527</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2567,7 +2556,7 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5957684" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5957684" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2576,12 +2565,12 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3997773" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997773" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2593,6 +2582,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="最新版本下，修改完成，在通讯录中，点击网络通话后，根据不同状态判断不同走向，由于页面后退调用过多，进行解决。对LinphoneCore对象绑定的监听过多。产生多次后退现象。问题解决。" />
+    <option name="LAST_COMMIT_MESSAGE" value="最新版本下，修改完成，在通讯录中，点击网络通话后，根据不同状态判断不同走向，由于页面后退调用过多，进行解决。对LinphoneCore对象绑定的监听过多。产生多次后退现象。问题解决。" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3046,7 +3039,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/xiangxun/activity/tool/ContactsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.3372549">
+        <state vertical-scroll-proportion="2.0419161">
           <caret line="263" column="58" selection-start-line="263" selection-start-column="58" selection-end-line="263" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
