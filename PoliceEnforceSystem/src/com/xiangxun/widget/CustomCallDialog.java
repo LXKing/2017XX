@@ -1,7 +1,5 @@
 package com.xiangxun.widget;
 
-import java.util.List;
-
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
@@ -18,11 +16,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.xiangxun.activity.R;
-import com.xiangxun.activity.point.ActiveCalling;
 
-import org.linphone.LinphoneManager;
-import org.linphone.core.LinphoneCore;
-import org.linphone.core.LinphoneProxyConfig;
+import java.util.List;
 
 /**
  * @package: com.xiangxun.widget
