@@ -1,5 +1,6 @@
 package com.xiangxun.activity.tool;
 
+import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -9,7 +10,6 @@ import android.view.View.OnClickListener;
 
 import com.xiangxun.activity.R;
 import com.xiangxun.activity.mine.MyInformationActivity;
-import com.xiangxun.app.BaseActivity;
 import com.xiangxun.video.common.ToastApp;
 import com.xiangxun.video.ui.RecordFragment;
 import com.xiangxun.widget.TitleView;
@@ -21,7 +21,7 @@ import com.xiangxun.widget.TitleView;
  *
  * @TODO: 测试视频录像类
  */
-public class VideoRecordActivity extends BaseActivity implements RecordFragment.OnResultBackListener, OnClickListener {
+public class VideoRecordActivity extends Activity implements RecordFragment.OnResultBackListener, OnClickListener {
 
     private FragmentManager fragmentManager;
 
@@ -36,7 +36,6 @@ public class VideoRecordActivity extends BaseActivity implements RecordFragment.
         initView();
     }
 
-    @Override
     public void initView() {
         initFragments(RecordFragment.class, R.id.test_fragment);
         titleView = (TitleView) findViewById(R.id.tv_comm_title);
@@ -48,16 +47,6 @@ public class VideoRecordActivity extends BaseActivity implements RecordFragment.
                 onBackPressed();
             }
         });
-    }
-
-    @Override
-    public void initListener() {
-
-    }
-
-    @Override
-    public void initData() {
-
     }
 
     private void initFragments(Class<?> cls, int resId) {

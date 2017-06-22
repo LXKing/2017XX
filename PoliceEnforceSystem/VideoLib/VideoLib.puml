@@ -1,0 +1,94 @@
+@startuml
+class RecordFragment extends Fragment implements View.OnClickListener, MediaPlayer.OnPreparedListener,MediaPlayer.OnErrorListener, MediaPlayer.OnCompletionListener{
+onActivityResult(int requestCode, int resultCode, Intent data)
+}
+RecordFragment o- WechatRecoderActivity
+class WechatRecoderActivity extends Activity implements MediaRecorderBase.OnErrorListener, MediaRecorderBase.OnEncodeListener, ProgressImage.OnFinishListener, OnPreparedListener, OnErrorListener, OnCompletionListener {
+void launchActivity(Context context, RecoderAttrs attrs, int requestCode)
+}
+
+
+class CircleBackgroundTextView extends TextView {
+}
+
+class EaseInOutCubicInterpolator implements TimeInterpolator {
+getInterpolation(float input)
+}
+
+class MediaPlayer{
+}
+View o- View.OnClickListener
+MediaPlayer o- MediaPlayer.OnPreparedListener
+MediaPlayer o- MediaPlayer.OnErrorListener
+MediaPlayer o- MediaPlayer.OnCompletionListener
+
+CircleProgress o- EaseInOutCubicInterpolator
+ShowLoading o- CircleProgress
+WechatRecoderActivity o- ShowLoading
+ProgressImage o- OnFinishListener
+class CircleProgress extends View{
++EaseInOutCubicInterpolator
+}
+class ProgressImage extends View {
++{interface}OnFinishListener listener
+setOnFinishListener(OnFinishListener listener)
+setMax(int max)
+}
+interface OnFinishListener{
+void progressDown();
+}
+
+
+
+
+class ShowLoading extends Dialog {
+protected Context context;
+private CircleProgress progres
+private int coutloading = 0;
+void setMessage(CharSequence message)
+void setMessage(int message)
+}
+
+WechatRecoderActivity o- OnDialogListener
+interface OnDialogListener {
+    void onShowDialog(Context context);
+    void onHideDialog(Context context);
+}
+
+
+
+abstract ParentAdapter extends BaseAdapter{
+    protected List<T> data;
+	protected int resID;
+	protected Context context;
+
+    ParentAdapter(List<T> data, int resID, Context context)
+    View getView(int position, View convertView, ViewGroup parent)
+    abstract View HockView(int position, View view, ViewGroup parent,
+    			int resID, Context context, T t)
+}
+
+
+class UtilityAdapter{
+    System.loadLibrary("utility");
+    System.loadLibrary("ffmpeg");
+    System.loadLibrary("openh264");
+    System.loadLibrary("vcamera");
+    //System.loadLibrary("wsld");
+}
+
+
+
+class TourSelectAdapter extends ParentAdapter
+class TourSelectDialog extends Dialog
+interface TourSelectListener
+
+WechatRecoderActivity <|- UtilityAdapter
+
+TourSelectAdapter o- TourSelectListener
+TourSelectDialog o- TourSelectAdapter
+WechatRecoderActivity o- TourSelectListener
+WechatRecoderActivity o- TourSelectDialog
+@enduml
+
+

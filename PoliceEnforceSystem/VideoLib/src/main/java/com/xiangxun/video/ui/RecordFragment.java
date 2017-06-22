@@ -16,7 +16,6 @@ import android.widget.RelativeLayout;
 import android.widget.VideoView;
 
 import com.xiangxun.video.R;
-import com.xiangxun.video.common.ToastApp;
 
 /**
  * Created by Zhangyuhui/Darly on 2017/6/19.
