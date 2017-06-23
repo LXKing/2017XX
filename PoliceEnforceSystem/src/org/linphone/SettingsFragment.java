@@ -579,12 +579,10 @@ public class SettingsFragment extends PreferencesListFragment implements Linphon
         ((CheckBoxPreference) findPreference(getString(R.string.pref_video_use_front_camera_key))).setChecked(mPrefs.useFrontCam());
         ((CheckBoxPreference)
                 findPreference(getString(R.string.pref_video_initiate_call_with_video_key))).setChecked(true);
-        // ((CheckBoxPreference)
-        // findPreference(getString(R.string.pref_video_automatically_share_my_video_key))).setChecked(mPrefs.shouldAutomaticallyShareMyVideo());
-        // ((CheckBoxPreference)
-        // findPreference(getString(R.string.pref_video_automatically_accept_video_key))).setChecked(mPrefs.shouldAutomaticallyAcceptVideoRequests());
-        mPrefs.setAutomaticallyAcceptVideoRequests(true);
-        mPrefs.setInitiateVideoCall(true);
+        ((CheckBoxPreference)
+                findPreference(getString(R.string.pref_video_automatically_share_my_video_key))).setChecked(true);
+        ((CheckBoxPreference)
+                findPreference(getString(R.string.pref_video_automatically_accept_video_key))).setChecked(true);
     }
 
     private void setVideoPreferencesListener() {
@@ -615,24 +613,27 @@ public class SettingsFragment extends PreferencesListFragment implements Linphon
             }
         });
 
-		/*
-         * findPreference(getString(R.string.
-		 * pref_video_automatically_share_my_video_key
-		 * )).setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
-		 *
-		 * @Override public boolean onPreferenceChange(Preference preference,
-		 * Object newValue) { boolean enable = (Boolean) newValue;
-		 * mPrefs.setAutomaticallyShareMyVideo(enable); return true; } });
-		 */
+//        findPreference(getString(R.string.
+//                pref_video_automatically_share_my_video_key
+//        )).setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+//
+//            @Override
+//            public boolean onPreferenceChange(Preference preference,
+//                                              Object newValue) {
+//                boolean enable = (Boolean) newValue;
+//                mPrefs.setAutomaticallyShareMyVideo(enable);
+//                return true;
+//            }
+//        });
 
-//		findPreference(getString(R.string.pref_video_automatically_accept_video_key)).setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
-//			@Override
-//			public boolean onPreferenceChange(Preference preference, Object newValue) {
-//				boolean enable = (Boolean) newValue;
-//				mPrefs.setAutomaticallyAcceptVideoRequests(enable);
-//				return true;
-//			}
-//		});
+        findPreference(getString(R.string.pref_video_automatically_accept_video_key)).setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                boolean enable = (Boolean) newValue;
+                mPrefs.setAutomaticallyAcceptVideoRequests(enable);
+                return true;
+            }
+        });
 
         findPreference(getString(R.string.pref_preferred_video_size_key)).setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
             @Override
