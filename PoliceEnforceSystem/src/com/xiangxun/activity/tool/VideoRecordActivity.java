@@ -3,10 +3,13 @@ package com.xiangxun.activity.tool;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 
 import com.xiangxun.activity.R;
 import com.xiangxun.activity.mine.MyInformationActivity;
@@ -29,6 +32,8 @@ public class VideoRecordActivity extends Activity implements RecordFragment.OnRe
 
     private TitleView titleView;
 
+    private WebView wv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +43,41 @@ public class VideoRecordActivity extends Activity implements RecordFragment.OnRe
 
     public void initView() {
         initFragments(RecordFragment.class, R.id.test_fragment);
+        wv = (WebView) findViewById(R.id.test_webview);
+        wv.setVisibility(View.GONE);
+        WebSettings webSettings = wv.getSettings();
+        // 设置可以访问文件
+        webSettings.setAllowFileAccess(true);
+        webSettings.setPluginState(WebSettings.PluginState.ON);
+        // 设置WebView属性，能够执行Javascript脚本
+        // 广播没有加载注册完成引起崩溃
+        // webSettings.setBuiltInZoomControls(true);
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
+        webSettings.setUseWideViewPort(true);// 关键点
+        webSettings.setLoadWithOverviewMode(true);
+        webSettings.setAppCacheEnabled(true);
+
+        webSettings.setAppCacheMaxSize(8 * 1024 * 1024); // 8MB
+        // webSettings.setAppCachePath(Constants.WEBVIEW_CACHE_DIR );
+        String appCacheDir = getApplicationContext()
+                .getDir("cache", Context.MODE_PRIVATE).getPath();
+        webSettings.setAppCachePath(appCacheDir);
+        webSettings.setDomStorageEnabled(true);
+        // 启用数据库
+        webSettings.setDatabaseEnabled(true);
+        // 设置定位的数据库路径
+        String dir = getApplicationContext()
+                .getDir("database", Context.MODE_PRIVATE).getPath();
+        webSettings.setGeolocationDatabasePath(dir);
+        // 启用地理定位
+        webSettings.setGeolocationEnabled(true);
+
+        webSettings.setCacheMode(WebSettings.LOAD_DEFAULT);
+        // js调用安卓方法
+        //wv.addJavascriptInterface(this, "HellenDown");
+
+        wv.loadUrl("file:///android_asset/download.html");
         titleView = (TitleView) findViewById(R.id.tv_comm_title);
         titleView.setTitle("视频录像");
         titleView.setLeftBackOneListener(R.drawable.back_normal, new OnClickListener() {

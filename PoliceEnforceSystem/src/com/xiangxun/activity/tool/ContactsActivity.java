@@ -135,8 +135,11 @@ public class ContactsActivity extends BaseActivity implements OnClickListener, I
                 if (ab.phone != null && !ab.phone.equals("")) {
                     mPhones.add(ab.phone);
                 }
-//                不知道那个字段是Linphone的电话，先用868299021323554代替。
-                mPhones.add("网络电话#" + "868299021323554" + "#" + ab.name);
+//                不知道那个字段是Linphone的电话，先用865982011447755代替。
+                mPhones.add("夜二网络电话#" + "865982011447755" + "#" + ab.name);
+                mPhones.add("夜一网络电话#" + "351662010206813" + "#" + ab.name);
+                mPhones.add("Vivo网络电话#" + "868299021323547" + "#" + ab.name);
+                mPhones.add("HuaWei网络电话#" + "866394023045701" + "#" + ab.name);
                 CustomCallDialog callDialog = new CustomCallDialog(ContactsActivity.this, mPhones, false, ContactsActivity.this);
                 callDialog.setCanceledOnTouchOutside(true);
                 callDialog.show();

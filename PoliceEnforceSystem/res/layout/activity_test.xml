@@ -16,5 +16,11 @@
         android:layout_below="@id/tv_comm_title"
         android:background="@color/black" />
 
+    <WebView
+        android:id="@+id/test_webview"
+        android:layout_below="@id/test_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 
 </RelativeLayout>
